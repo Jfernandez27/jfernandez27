@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Jesus Fernandez M.</h1>
-<h3 align="center">A passionate frontend developer from IndiaComputer engineer passionate about technology, music and sports</h3>
+<h3 align="center">A Computer engineer passionate about technology, music and sports</h3>
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=jfernandez27" alt="jfernandez27" /></a> </p>
 
