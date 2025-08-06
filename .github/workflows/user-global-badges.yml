@@ -32,28 +32,53 @@ jobs:
         env:
           GH_USER: Jfernandez27
         run: |
-          read -r REPO_COUNT COMMIT_COUNT PR_CONTRIB ISSUE_CONTRIB FOLLOWERS STARRED <<<"$(
-            gh api graphql -f query='
-              query($login:String!) {
-                user(login:$login) {
-                  repositories(ownerAffiliations:[OWNER], isFork:false) { totalCount }
-                  contributionsCollection {
-                    totalCommitContributions
-                    totalPullRequestContributions
-                    totalIssueContributions
-                  }
-                  followers { totalCount }
-                  starredRepositories { totalCount }
+          REPO_COUNT=$(gh api graphql -f query='
+            query($login:String!) {
+              user(login:$login) {
+                repositories(ownerAffiliations:[OWNER], isFork:false) { totalCount }
+              }
+            }' -f login="$GH_USER" --jq '.data.user.repositories.totalCount')
+
+          COMMIT_COUNT=$(gh api graphql -f query='
+            query($login:String!) {
+              user(login:$login) {
+                contributionsCollection {
+                  totalCommitContributions
                 }
-              }' \
-              -f login="$GH_USER" \
-              --jq '[.data.user.repositories.totalCount,
-                     .data.user.contributionsCollection.totalCommitContributions,
-                     .data.user.contributionsCollection.totalPullRequestContributions,
-                     .data.user.contributionsCollection.totalIssueContributions,
-                     .data.user.followers.totalCount,
-                     .data.user.starredRepositories.totalCount] | @tsv'
-          )
+              }
+            }' -f login="$GH_USER" --jq '.data.user.contributionsCollection.totalCommitContributions')
+
+          PR_CONTRIB=$(gh api graphql -f query='
+            query($login:String!) {
+              user(login:$login) {
+                contributionsCollection {
+                  totalPullRequestContributions
+                }
+              }
+            }' -f login="$GH_USER" --jq '.data.user.contributionsCollection.totalPullRequestContributions')
+
+          ISSUE_CONTRIB=$(gh api graphql -f query='
+            query($login:String!) {
+              user(login:$login) {
+                contributionsCollection {
+                  totalIssueContributions
+                }
+              }
+            }' -f login="$GH_USER" --jq '.data.user.contributionsCollection.totalIssueContributions')
+
+          FOLLOWERS=$(gh api graphql -f query='
+            query($login:String!) {
+              user(login:$login) {
+                followers { totalCount }
+              }
+            }' -f login="$GH_USER" --jq '.data.user.followers.totalCount')
+
+          STARRED=$(gh api graphql -f query='
+            query($login:String!) {
+              user(login:$login) {
+                starredRepositories { totalCount }
+              }
+            }' -f login="$GH_USER" --jq '.data.user.starredRepositories.totalCount')
 
           echo "REPO_COUNT=$REPO_COUNT" >> $GITHUB_ENV
           echo "COMMIT_COUNT=$COMMIT_COUNT" >> $GITHUB_ENV
