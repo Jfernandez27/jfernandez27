@@ -26,12 +26,12 @@ Here are some of the main projects I’m currently involved in:
 
 ## 🛠️ Tech Stack
 
-**Backend:** PHP, Laravel, Node.js, Python  
-**Frontend:** Tailwind CSS, Bootstrap, VueJs, React
-**Databases:** MySQL, PostgreSQL, MariaDB  
-**Testing:** PHPUnit, Jest, JMeter
-**Monitoring:** Datadog, Grafana  
-**DevOps & Cloud:** Docker, GitHub Actions, AWS (EC2, S3, RDS)
+- **Backend:** PHP, Laravel, Node.js, Python  
+- **Frontend:** Tailwind CSS, Bootstrap, VueJs, React
+- **Databases:** MySQL, PostgreSQL, MariaDB  
+- **Testing:** PHPUnit, Jest, JMeter
+- **Monitoring:** Datadog, Grafana  
+- **DevOps & Cloud:** Docker, GitHub Actions, AWS (EC2, S3, RDS)
 
 ---
 
