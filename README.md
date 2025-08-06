@@ -1,6 +1,8 @@
 # 👋 Jesus Fernández Machín
 
-I'm a software developer from Venezuela based in Santiago, Chile, passionate about building tools that empower educators, streamline operations, and simplify complex workflows. I specialize in SaaS platforms across education, e-commerce, internal tools, APIs & integrations, and custom web applications.
+I'm a software developer from Venezuela, currently based in Santiago, Chile. I specialize in creating solutions that simplify complex workflows and drive innovation. My experience covers SaaS platforms for education, enterprise, e-commerce, internal tools, API integrations, and custom web applications.
+
+I'm committed to continuous learning and thrive in collaborative team environments, always striving to deliver value through both software development and process improvement.
 
 ---
 
