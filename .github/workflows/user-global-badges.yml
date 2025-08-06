@@ -1,0 +1,117 @@
+# .github/workflows/user-global-badges.yml
+name: Build extended user & repo badges
+
+permissions:
+    contents: write
+
+on:
+    schedule:
+        - cron: '0 4 * * *'
+    workflow_dispatch:
+
+jobs:
+    build-badges:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v3
+              with:
+                  persist-credentials: true
+
+            - name: Instalar GH CLI y make-issue-badge
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y gh
+                  npm install -g make-issue-badge
+
+            - name: Autenticar GH CLI con PAT
+              run: |
+                  echo "${{ secrets.PAT_TOKEN }}" | gh auth login --with-token
+
+            - name: Obtener métricas globales y de EduPro360
+              env:
+                  GH_USER: Jfernandez27
+                  REPO_NAME: EduPro360
+              run: |
+                  # 1. Métricas de usuario  
+                  read -r REPO_COUNT COMMIT_COUNT PR_CONTRIB ISSUE_CONTRIB FOLLOWERS STARRED <<<"$(
+                    gh api graphql \
+                      -f query='
+                        query($login:String!) {
+                          user(login:$login) {
+                            repositories(ownerAffiliations:[OWNER], isFork:false) { totalCount }
+                            contributionsCollection {
+                              totalCommitContributions
+                              totalPullRequestContributions
+                              totalIssueContributions
+                            }
+                            followers { totalCount }
+                            starredRepositories { totalCount }
+                          }
+                        }' \
+                      -f login="$GH_USER" \
+                      --jq '[.data.user.repositories.totalCount,
+                             .data.user.contributionsCollection.totalCommitContributions,
+                             .data.user.contributionsCollection.totalPullRequestContributions,
+                             .data.user.contributionsCollection.totalIssueContributions,
+                             .data.user.followers.totalCount,
+                             .data.user.starredRepositories.totalCount] | @tsv'
+                  )
+
+                  # 2. Conteo de lenguajes en el repo EduPro360  
+                  LANG_COUNT=$(gh api graphql \
+                    -f query='
+                      query($owner:String!,$name:String!){
+                        repository(owner:$owner,name:$name){
+                          languages { totalCount }
+                        }
+                      }' \
+                    -f owner="$GH_USER" -f name="$REPO_NAME" \
+                    --jq '.data.repository.languages.totalCount'
+                  )
+
+                  echo "REPO_COUNT=$REPO_COUNT" >> $GITHUB_ENV
+                  echo "COMMIT_COUNT=$COMMIT_COUNT" >> $GITHUB_ENV
+                  echo "PR_CONTRIB=$PR_CONTRIB" >> $GITHUB_ENV
+                  echo "ISSUE_CONTRIB=$ISSUE_CONTRIB" >> $GITHUB_ENV
+                  echo "FOLLOWERS=$FOLLOWERS" >> $GITHUB_ENV
+                  echo "STARRED=$STARRED" >> $GITHUB_ENV
+                  echo "LANG_COUNT=$LANG_COUNT" >> $GITHUB_ENV
+
+            - name: Generar badges SVG
+              run: |
+                  make-issue-badge --count=$REPO_COUNT \
+                    --label="Repositorios" --color=0EA5E9 --style=flat-square \
+                    > badges/public-repos.svg
+
+                  make-issue-badge --count=$COMMIT_COUNT \
+                    --label="Commits Totales" --color=10B981 --style=flat-square \
+                    > badges/total-commits.svg
+
+                  make-issue-badge --count=$PR_CONTRIB \
+                    --label="PR Contributions" --color=22C55E --style=flat-square \
+                    > badges/pr-contrib.svg
+
+                  make-issue-badge --count=$ISSUE_CONTRIB \
+                    --label="Issue Contributions" --color=DC2626 --style=flat-square \
+                    > badges/issue-contrib.svg
+
+                  make-issue-badge --count=$FOLLOWERS \
+                    --label="Followers" --color=FACC15 --style=flat-square \
+                    > badges/followers.svg
+
+                  make-issue-badge --count=$STARRED \
+                    --label="Starred Repos" --color=F97316 --style=flat-square \
+                    > badges/starred.svg
+
+                  make-issue-badge --count=$LANG_COUNT \
+                    --label="Languages" --color=D946EF --style=flat-square \
+                    > badges/languages.svg
+
+            - name: Commit y push de badges
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  commit_message: 'chore: update all user & repo badges'
+                  file_pattern: 'badges/*.svg'
+                  token: ${{ secrets.GITHUB_TOKEN }}
