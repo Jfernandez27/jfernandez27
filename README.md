@@ -60,7 +60,15 @@ I'm a software developer from Venezuela based in Santiago, Chile, passionate abo
 
 ## 📊 My Statistics
 
-<div align="center" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 20px; margin-bottom: 60px;"><img src="./badges/public-repos.svg" alt="Repositories" title="Repositories" style="height: 28px;" /><img src="./badges/total-commits.svg" alt="Total Commits" title="Total Commits" style="height: 28px;" /><img src="./badges/pr-contrib.svg" alt="PR Contributions" title="PR Contributions" style="height: 28px;" /><img src="./badges/issue-contrib.svg" alt="Issue Contributions" title="Issue Contributions" style="height: 28px;" /><img src="./badges/followers.svg" alt="Followers" title="Followers" style="height: 28px;" /><img src="./badges/starred.svg" alt="Starred Repositories" title="Starred Repositories" style="height: 28px;" /><img src="./badges/languages.svg" alt="Languages" title="Languages" style="height: 28px;" /></div>
+<div align="center" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 20px; margin-bottom: 60px;">
+  <img src="./badges/public-repos.svg" alt="Repositories" title="Repositories" style="height: 28px;" />
+  <img src="./badges/total-commits.svg" alt="Total Commits" title="Total Commits" style="height: 28px;" />
+  <img src="./badges/pr-contrib.svg" alt="PR Contributions" title="PR Contributions" style="height: 28px;" />
+  <img src="./badges/issue-contrib.svg" alt="Issue Contributions" title="Issue Contributions" style="height: 28px;" />
+  <img src="./badges/followers.svg" alt="Followers" title="Followers" style="height: 28px;" />
+  <img src="./badges/starred.svg" alt="Starred Repositories" title="Starred Repositories" style="height: 28px;" />
+  <img src="./badges/languages.svg" alt="Languages" title="Languages" style="height: 28px;" />
+</div>
 
 ---
 
