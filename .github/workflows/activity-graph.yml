@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Download SVG de Activity Graph
+      - name: Download SVG de Activity Graph (30 días)
         run: |
           curl "https://github-readme-activity-graph.vercel.app/graph?username=Jfernandez27&theme=react-dark&days=30" \
             -o README-activity.svg
@@ -21,29 +21,5 @@ jobs:
       - name: Commit y push del SVG
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "chore: update Activity Graph"
-          file_pattern: "README-activity.svg"name: Update Activity Graph
-
-on:
-  schedule:
-    - cron: '0 1 * * *'
-  workflow_dispatch:
-
-jobs:
-  generate:
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Download SVG de Activity Graph
-        run: |
-          curl "https://github-readme-activity-graph.vercel.app/graph?username=TU_USUARIO&theme=react-dark" \
-            -o README-activity.svg
-
-      - name: Commit y push del SVG
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "chore: update Activity Graph"
+          commit_message: "chore: update Activity Graph (30 días)"
           file_pattern: "README-activity.svg"
