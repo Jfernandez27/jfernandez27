@@ -8,6 +8,8 @@ I'm committed to continuous learning and thrive in collaborative team environmen
 
 ## 🚀 What I’m Working On
 
+Here are some of the main projects I’m currently involved in:
+
 | Project         | Description                                                  | Tech Stack                    | Status                                    | Link                                 |
 | --------------- | ------------------------------------------------------------ | ----------------------------- | ----------------------------------------- | ------------------------------------ |
 | EduPro360       | School-management SaaS tailored to Venezuelan curricula and workflows | Laravel, Node.js, MariaDB, Tailwind | ![In Development](https://img.shields.io/badge/status-in--development-blue) | *(private repo)* |
@@ -15,8 +17,10 @@ I'm committed to continuous learning and thrive in collaborative team environmen
 | FitAdminX       | Administrative and fitness platform for gyms                 | Node.js, Vue.js, MongoDB        | ![Paused](https://img.shields.io/badge/status-paused-yellow)                | *(private repo)* |
 | Seduc Servicios 2.0 | Streamlining educational administration in Chile        | PHP, MySQL, AWS               | ![MVP](https://img.shields.io/badge/status-MVP-success)                     | [dev.seduc.cl](https://dev.seduc.cl) |
 
-- Powering backends with **Node.js** & **Express**  
+**Other things I’m focusing on:**
+- Powering backends with **Node.js** & **Express**
 - Crafting high-performance PHP applications in **Laravel**
+- Exploring new tools and technologies to improve development workflows
 
 ---
 
