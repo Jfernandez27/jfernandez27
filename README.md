@@ -83,53 +83,17 @@ I’m a software developer from Venezuela based in Santiago, Chile, building Saa
 
 ## 📊 My Statistics
 
-<div align="center" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 20px;">
-
-  <!-- Repositorios -->
-  <div style="display: flex; align-items: center; gap: 10px; min-width: 180px;">
-    <img src="./badges/public-repos.svg" alt="Repositorios" style="width: 24px; height: 24px;" />
-    <span style="font-weight: 600; font-size: 16px; color: #0ea5e9;">Repositorios</span>
-  </div>
-
-  <!-- Commits Totales -->
-  <div style="display: flex; align-items: center; gap: 10px; min-width: 180px;">
-    <img src="./badges/total-commits.svg" alt="Commits Totales" style="width: 24px; height: 24px;" />
-    <span style="font-weight: 600; font-size: 16px; color: #10b981;">Commits Totales</span>
-  </div>
-
-  <!-- PR Contributions -->
-  <div style="display: flex; align-items: center; gap: 10px; min-width: 180px;">
-    <img src="./badges/pr-contrib.svg" alt="PR Contributions" style="width: 24px; height: 24px;" />
-    <span style="font-weight: 600; font-size: 16px; color: #22c55e;">PR Contributions</span>
-  </div>
-
-  <!-- Issue Contributions -->
-  <div style="display: flex; align-items: center; gap: 10px; min-width: 180px;">
-    <img src="./badges/issue-contrib.svg" alt="Issue Contributions" style="width: 24px; height: 24px;" />
-    <span style="font-weight: 600; font-size: 16px; color: #dc2626;">Issue Contributions</span>
-  </div>
-
-  <!-- Followers -->
-  <div style="display: flex; align-items: center; gap: 10px; min-width: 180px;">
-    <img src="./badges/followers.svg" alt="Followers" style="width: 24px; height: 24px;" />
-    <span style="font-weight: 600; font-size: 16px; color: #facc15;">Followers</span>
-  </div>
-
-  <!-- Starred Repos -->
-  <div style="display: flex; align-items: center; gap: 10px; min-width: 180px;">
-    <img src="./badges/starred.svg" alt="Starred Repos" style="width: 24px; height: 24px;" />
-    <span style="font-weight: 600; font-size: 16px; color: #f97316;">Starred Repos</span>
-  </div>
-
-  <!-- Languages -->
-  <div style="display: flex; align-items: center; gap: 10px; min-width: 180px;">
-    <img src="./badges/languages.svg" alt="Languages" style="width: 24px; height: 24px;" />
-    <span style="font-weight: 600; font-size: 16px; color: #d946ef;">Languages</span>
-  </div>
-
+<div align="center" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 20px; margin-bottom: 60px;">
+  <img src="./badges/public-repos.svg" alt="Repositories" title="Repositories" style="height: 28px;" />
+  <img src="./badges/total-commits.svg" alt="Total Commits" title="Total Commits" style="height: 28px;" />
+  <img src="./badges/pr-contrib.svg" alt="PR Contributions" title="PR Contributions" style="height: 28px;" />
+  <img src="./badges/issue-contrib.svg" alt="Issue Contributions" title="Issue Contributions" style="height: 28px;" />
+  <img src="./badges/followers.svg" alt="Followers" title="Followers" style="height: 28px;" />
+  <img src="./badges/starred.svg" alt="Starred Repositories" title="Starred Repositories" style="height: 28px;" />
+  <img src="./badges/languages.svg" alt="Languages" title="Languages" style="height: 28px;" />
 </div>
 
-<div align="center">
+<div align="center" style="margin-top: 80px;">
   <img src="./README-activity.svg" alt="GitHub Activity Graph" />
 </div>
 
