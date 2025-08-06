@@ -1,102 +1,119 @@
-<h1 align="left">Hey 👋 What's up?</h1>
-<p align="left">My name is Jesus and I'm a software developer from Venezuela, living in Santiago, Chile</p>
+# Jesus Fernández Machín 👋
 
-###
+I’m a software developer from Venezuela based in Santiago, Chile, building SaaS platforms across education, e-commerce, internal tools, APIs & integrations, and custom web applications.
 
-<h2 align="left">About me</h2>
+---
 
-###
+## 🚀 What I’m Working On
 
-<p align="left">🔭 I’m currently working on <a href="https://dev.seduc.cl" target="_blank">Seduc Servicios</a><br><br>📚 I’m currently learning <strong>NodeJS, express</strong><br><br>📝 I regularly write articles on <a href="https://id3a.cl" target="_blank">id3a.cl</a><br><br>💬 Ask me about <strong>php, mysql, laravel</strong><br><br>📫 How to reach me <a href="mailto:jesus@id3a.cl" target="_blank"><strong>jesus@id3a.cl</strong></a><br><br>🎯 Goals: Improve my backend development skills with NodeJS and Express, and continue deepening my knowledge in technologies like PHP, MySQL, and Laravel.<br><br>🎲 Fun fact: In my free time, I enjoy playing and analyzing games like Minecraft, Age of Empires, and Red Dead Redemption II. I also play percussion instruments, and I believe music and programming have much in common: both require creativity, practice, and passion.</p>
+- **EduPro360** (Venezuela): A school-management SaaS tailored to Venezuelan curricula and workflows.  
+- **Condo360**: An end-to-end condominium management platform (in development).  
+- **Seduc Servicios** ([dev.seduc.cl](https://dev.seduc.cl)): Streamlining educational administration in Chile.  
+- Powering backends with **Node.js** & **Express**.  
+- Crafting high-performance PHP applications in **Laravel**.  
 
-###
+---
 
-<h2 align="left">I code with</h2>
+## 🛠️ Tech Stack
 
-###
+- PHP & Laravel  
+- JavaScript (ES6+) & Node.js  
+- Python  
+- MySQL & PostgreSQL  
+- Docker & GitHub Actions (CI/CD)  
+- AWS (EC2, S3, RDS)  
 
-<div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" height="40" alt="php logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="40" alt="java logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" height="40" alt="laravel logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cakephp/cakephp-original.svg" height="40" alt="cakephp logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg" height="40" alt="codeigniter logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" alt="nodejs logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" height="40" alt="express logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" height="40" alt="jquery logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="40" alt="mysql logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height="40" alt="postgresql logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" height="40" alt="mongodb logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-line-wordmark.svg" height="40" alt="amazonwebservices logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" height="40" alt="tailwindcss logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" height="40" alt="bootstrap logo"  />
-</div>
+---
 
-###
+## 🎓 Certifications
 
-<h2 align="center"></h2>
+- Google Project Management Professional Certificate _(in progress)_  
+- AWS Certified Solutions Architect – Associate _(in progress)_  
 
-###
+---
+
+## 🎯 Goals
+
+- Master design patterns and SOLID principles in Node.js, Express, and Laravel.  
+- Architect fault-tolerant, microservices-ready APIs.  
+- Optimize cloud costs while ensuring high availability.  
+
+---
+
+## 💻 I Code With
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Jfernandez27&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dark&locale=en&hide_border=false&order=1" height="150" alt="stats graph"  />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=Jfernandez27&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=10&theme=dark&hide_border=false&order=2" height="150" alt="languages graph"  />
-  <img src="https://github-profile-trophy.vercel.app?username=Jfernandez27&theme=dark&column=-1&row=1&margin-w=8&margin-h=8&no-bg=false&no-frame=false&order=4" height="150" alt="trophy graph"  />
-</div>
-
-###
-
-<h2 align="center"></h2>
-
-###
-
-<div align="center">
-  <a href="https://www.linkedin.com/in/jesusfernandezmachin/" target="_blank" style="text-decoration: none;">
-    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/main/src/assets/icons/social/linkedin/default.svg" width="52" height="40" alt="linkedin logo"  />
+  <a href="https://www.php.net/">
+    <img src="https://img.shields.io/badge/PHP-8.3%2B-3B82F6?logo=php&logoColor=white&labelColor=101010" alt="PHP" />
   </a>
-  <a href="https://x.com/jefm27" target="_blank" style="text-decoration: none;">
-    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/twitter/default.svg" width="52" height="40" alt="twitter logo"  />
+  <a href="https://laravel.com/">
+    <img src="https://img.shields.io/badge/Laravel-11.x-F97316?logo=laravel&logoColor=white&labelColor=101010" alt="Laravel" />
   </a>
-  <a href="https://www.youtube.com/@JesusFernandez1227" target="_blank" style="text-decoration: none;">
-    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/youtube/default.svg" width="52" height="40" alt="youtube logo"  />
+  <a href="https://nodejs.org/">
+    <img src="https://img.shields.io/badge/Node.js-16.x-22C55E?logo=node.js&logoColor=white&labelColor=101010" alt="Node.js" />
   </a>
-  <a href="https://www.instagram.com/jfernandez1227/" target="_blank" style="text-decoration: none;">
-    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/main/src/assets/icons/social/instagram/default.svg" width="52" height="40" alt="instagram logo"  />
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white&labelColor=101010" alt="Python" />
   </a>
-  <a href="https://dev.to/jfernandez27" target="_blank" style="text-decoration: none;">
-    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/main/src/assets/icons/social/devto/default.svg" width="52" height="40" alt="devto logo"  />
+  <a href="https://www.mysql.com/">
+    <img src="https://img.shields.io/badge/MySQL-8.x-4479A1?logo=mysql&logoColor=white&labelColor=101010" alt="MySQL" />
+  </a>
+  <a href="https://mariadb.org/">
+    <img src="https://img.shields.io/badge/MariaDB-10.x-003545?logo=mariadb&logoColor=white&labelColor=101010" alt="MariaDB" />
+  </a>
+  <a href="https://www.postgresql.org/">
+    <img src="https://img.shields.io/badge/PostgreSQL-13.x-336791?logo=postgresql&logoColor=white&labelColor=101010" alt="PostgreSQL" />
+  </a>
+  <a href="https://www.docker.com/">
+    <img src="https://img.shields.io/badge/Docker-24.x-2496ED?logo=docker&logoColor=white&labelColor=101010" alt="Docker" />
+  </a>
+  <a href="https://vuejs.org/">
+    <img src="https://img.shields.io/badge/Vue.js-3.x-4FC08D?logo=vue.js&logoColor=white&labelColor=101010" alt="Vue.js" />
+  </a>
+  <a href="https://tailwindcss.com/">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?logo=tailwind-css&logoColor=white&labelColor=101010" alt="Tailwind CSS" />
   </a>
 </div>
 
-###
+---
 
-<h2 align="center"></h2>
-
-###
-
-<br clear="both">
+## 📊 My Statistics
 
 <div align="center">
-  <a href="https://open.spotify.com/user/llb1dpw97z77nrszfh495al1r">
-    <img src="https://spotify-recently-played-readme.vercel.app/api?user=llb1dpw97z77nrszfh495al1r&count=10" alt="Spotify recently played"  />
+  <!-- Commits Today -->
+  <a href="https://github.com/Jfernandez27">
+    <img src="https://img.shields.io/badge/Commits–Today-3B82F6?logo=github&labelColor=101010" alt="Commits Today" />
+  </a>
+  <!-- Open PRs for SeducServicios -->
+  <a href="https://github.com/Jfernandez27/SeducServicios/pulls">
+    <img src="https://img.shields.io/github/issues-pr/Jfernandez27/SeducServicios?label=Open%20PRs&color=22C55E&labelColor=101010" alt="Open PRs for SeducServicios" />
+  </a>
+  <!-- Followers -->
+  <a href="https://github.com/Jfernandez27?tab=followers">
+    <img src="https://img.shields.io/github/followers/Jfernandez27?label=Followers&color=FACC15&labelColor=101010" alt="Followers" />
+  </a>
+  <!-- Stars -->
+  <a href="https://github.com/Jfernandez27?tab=stars">
+    <img src="https://img.shields.io/github/stars/Jfernandez27?label=Stars&color=F97316&labelColor=101010" alt="Stars" />
   </a>
 </div>
 
-###
+<div align="center">
+  <img src="./README-activity.svg" alt="GitHub Activity Graph" />
+</div>
+
+---
+
+## 📫 How to Reach Me
+
+- Website: [id3a.cl](https://id3a.cl)  
+- Discord: jefm27  
+- Email: [jesus@id3a.cl](mailto:jesus@id3a.cl)  
+- LinkedIn: [linkedin.com/in/jesusfernandezmachin](https://www.linkedin.com/in/jesusfernandezmachin/)  
+- Twitter: [@jefm27](https://x.com/jefm27)  
+
+---
+
+## 🎵 Fun Fact
+
+When I'm not coding, I play percussion instruments or strategize in games like Minecraft and Age of Empires.  
