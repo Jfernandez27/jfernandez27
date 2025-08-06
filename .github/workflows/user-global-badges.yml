@@ -33,20 +33,19 @@ jobs:
           GH_USER: Jfernandez27
         run: |
           read -r REPO_COUNT COMMIT_COUNT PR_CONTRIB ISSUE_CONTRIB FOLLOWERS STARRED <<<"$(
-            gh api graphql \
-              -f query='
-                query($login:String!) {
-                  user(login:$login) {
-                    repositories(ownerAffiliations:[OWNER], isFork:false) { totalCount }
-                    contributionsCollection {
-                      totalCommitContributions
-                      totalPullRequestContributions
-                      totalIssueContributions
-                    }
-                    followers { totalCount }
-                    starredRepositories { totalCount }
+            gh api graphql -f query='
+              query($login:String!) {
+                user(login:$login) {
+                  repositories(ownerAffiliations:[OWNER], isFork:false) { totalCount }
+                  contributionsCollection {
+                    totalCommitContributions
+                    totalPullRequestContributions
+                    totalIssueContributions
                   }
-                }' \
+                  followers { totalCount }
+                  starredRepositories { totalCount }
+                }
+              }' \
               -f login="$GH_USER" \
               --jq '[.data.user.repositories.totalCount,
                      .data.user.contributionsCollection.totalCommitContributions,
