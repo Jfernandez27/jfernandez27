@@ -101,7 +101,7 @@ Here are some of the main projects I’m currently involved in:
   <a href="https://www.linkedin.com/in/jesusfernandezmachin/">
     <img src="https://img.shields.io/badge/LinkedIn-jesusfernandezmachin-0A66C2?logo=linkedin&logoColor=white&labelColor=101010" alt="LinkedIn" />
   </a>
-  <a href="https://discord.com/channels/@me/1126741718113472563">
+  <a href="https://discord.com/users/1037436913063301120">
     <img src="https://img.shields.io/badge/Discord-jefm27-5865F2?logo=discord&logoColor=white&labelColor=101010" alt="Discord" />
   </a>
   <a href="https://stackoverflow.com/users/13946388/jesus-fernandez">
