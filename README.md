@@ -6,11 +6,12 @@ I'm a software developer from Venezuela based in Santiago, Chile, passionate abo
 
 ## 🚀 What I’m Working On
 
-| Project         | Description                                                  | Tech Stack                    | Link                                 |
-| --------------- | ------------------------------------------------------------ | ----------------------------- | ------------------------------------ |
-| EduPro360       | School-management SaaS tailored to Venezuelan curricula and workflows _(in development)_ | Laravel, Node.js, MariaDB, Tailwind | *(private repo)* |
-| Condo360        | End-to-end condominium management platform _(in development)_ | Laravel, MariaDB, Tailwind      | *(private repo)* |
-| Seduc Servicios | Streamlining educational administration in Chile             | PHP, MySQL, AWS               | [dev.seduc.cl](https://dev.seduc.cl) |
+| Project         | Description                                                  | Tech Stack                    | Status                                    | Link                                 |
+| --------------- | ------------------------------------------------------------ | ----------------------------- | ----------------------------------------- | ------------------------------------ |
+| EduPro360       | School-management SaaS tailored to Venezuelan curricula and workflows | Laravel, Node.js, MariaDB, Tailwind | ![In Development](https://img.shields.io/badge/status-in--development-blue) | *(private repo)* |
+| Condo360        | End-to-end condominium management platform                   | Laravel, MariaDB, Tailwind      | ![Planning](https://img.shields.io/badge/status-planning-lightgrey)         | *(private repo)* |
+| FitAdminX       | Administrative and fitness platform for gyms                 | Node.js, Vue.js, MongoDB        | ![Paused](https://img.shields.io/badge/status-paused-yellow)                | *(private repo)* |
+| Seduc Servicios 2.0 | Streamlining educational administration in Chile        | PHP, MySQL, AWS               | ![MVP](https://img.shields.io/badge/status-MVP-success)                     | [dev.seduc.cl](https://dev.seduc.cl) |
 
 - Powering backends with **Node.js** & **Express**  
 - Crafting high-performance PHP applications in **Laravel**
@@ -22,14 +23,16 @@ I'm a software developer from Venezuela based in Santiago, Chile, passionate abo
 **Backend:** PHP, Laravel, Node.js, Python  
 **Frontend:** Vue.js, Tailwind CSS  
 **Databases:** MySQL, PostgreSQL, MariaDB  
+**Testing:** PHPUnit, Jest  
+**Monitoring:** Sentry, New Relic  
 **DevOps & Cloud:** Docker, GitHub Actions, AWS (EC2, S3, RDS)
 
 ---
 
 ## 🎓 Certifications
 
-- Google Project Management Professional Certificate _(in progress, expected Q4 2025)_  
-- AWS Certified Solutions Architect – Associate _(in progress, expected Q1 2026)_
+- ⏳ Google Project Management Professional Certificate _(in progress, expected Q4 2025)_  
+- ⏳ AWS Certified Solutions Architect – Associate _(in progress, expected Q1 2026)_
 
 ---
 
@@ -43,7 +46,7 @@ I'm a software developer from Venezuela based in Santiago, Chile, passionate abo
 
 ## 💻 I Code With
 
-<div align="center" style="margin-bottom: 40px;">
+<div align="center">
   <a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP-8.3%2B-3B82F6?logo=php&logoColor=white&labelColor=101010" alt="PHP" /></a>
   <a href="https://laravel.com/"><img src="https://img.shields.io/badge/Laravel-11.x-F97316?logo=laravel&logoColor=white&labelColor=101010" alt="Laravel" /></a>
   <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-16.x-22C55E?logo=node.js&logoColor=white&labelColor=101010" alt="Node.js" /></a>
@@ -60,7 +63,7 @@ I'm a software developer from Venezuela based in Santiago, Chile, passionate abo
 
 ## 📊 My Statistics
 
-<div align="center" style="margin-bottom: 40px;">
+<div align="center">
   <img src="./badges/public-repos.svg" alt="Repositories" title="Repositories" />
   <img src="./badges/total-commits.svg" alt="Total Commits" title="Total Commits"" />
   <img src="./badges/pr-contrib.svg" alt="PR Contributions" title="PR Contributions" />
@@ -82,7 +85,7 @@ I'm a software developer from Venezuela based in Santiago, Chile, passionate abo
 
 ## 📫 How to Reach Me
 
-<div align="center" style="margin-bottom: 40px;">
+<div align="center">
   <a href="https://id3a.cl">
     <img src="https://img.shields.io/badge/Website-id3a.cl-F97316?logo=google-chrome&logoColor=white&labelColor=101010" alt="Website" />
   </a>
@@ -108,6 +111,7 @@ I'm a software developer from Venezuela based in Santiago, Chile, passionate abo
 
 ---
 
-## 🎵 Fun Fact
+## 🎵 Fun Facts
 
-When I'm not coding, I play percussion instruments or strategize in games like Minecraft and Age of Empires.
+- 🥁 When I'm not coding, I play percussion instruments or strategize in games like Minecraft and Age of Empires.
+- 🎬 I love binge-watching superhero series and movies—especially from the Marvel and DC universes.
