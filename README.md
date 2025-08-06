@@ -80,21 +80,67 @@ I’m a software developer from Venezuela based in Santiago, Chile, building Saa
 ## 📊 My Statistics
 
 <div align="center">
-  <!-- Commits Today -->
-  <a href="https://github.com/Jfernandez27">
-    <img src="https://img.shields.io/badge/Commits–Today-3B82F6?logo=github&labelColor=101010" alt="Commits Today" />
+  <!-- Commits Today (static badge style) -->
+  <a href="https://github.com/Jfernandez27/EduPro360">
+    <img
+      src="https://img.shields.io/badge/Commits–Today-3B82F6?logo=github&labelColor=101010"
+      alt="Commits Today" />
   </a>
-  <!-- Open PRs for SeducServicios -->
-  <a href="https://github.com/Jfernandez27/SeducServicios/pulls">
-    <img src="https://img.shields.io/github/issues-pr/Jfernandez27/SeducServicios?label=Open%20PRs&color=22C55E&labelColor=101010" alt="Open PRs for SeducServicios" />
+
+  <!-- Open PRs for EduPro360 -->
+  <a href="https://github.com/Jfernandez27/EduPro360/pulls">
+    <img
+      src="https://img.shields.io/github/issues-pr/Jfernandez27/EduPro360?label=Open%20PRs&color=22C55E&labelColor=101010"
+      alt="Open PRs for EduPro360" />
   </a>
-  <!-- Followers -->
-  <a href="https://github.com/Jfernandez27?tab=followers">
-    <img src="https://img.shields.io/github/followers/Jfernandez27?label=Followers&color=FACC15&labelColor=101010" alt="Followers" />
+
+  <!-- Open Issues for EduPro360 -->
+  <a href="https://github.com/Jfernandez27/EduPro360/issues">
+    <img
+      src="https://img.shields.io/github/issues/Jfernandez27/EduPro360?label=Open%20Issues&color=DC2626&labelColor=101010"
+      alt="Open Issues for EduPro360" />
   </a>
-  <!-- Stars -->
-  <a href="https://github.com/Jfernandez27?tab=stars">
-    <img src="https://img.shields.io/github/stars/Jfernandez27?label=Stars&color=F97316&labelColor=101010" alt="Stars" />
+
+  <!-- Forks of EduPro360 -->
+  <a href="https://github.com/Jfernandez27/EduPro360/network/members">
+    <img
+      src="https://img.shields.io/github/forks/Jfernandez27/EduPro360?label=Forks&color=10B981&labelColor=101010"
+      alt="Forks of EduPro360" />
+  </a>
+
+  <!-- Watchers of EduPro360 -->
+  <a href="https://github.com/Jfernandez27/EduPro360/watchers">
+    <img
+      src="https://img.shields.io/github/watchers/Jfernandez27/EduPro360?label=Watchers&color=6366F1&labelColor=101010"
+      alt="Watchers of EduPro360" />
+  </a>
+
+  <!-- Contributors to EduPro360 -->
+  <a href="https://github.com/Jfernandez27/EduPro360/graphs/contributors">
+    <img
+      src="https://img.shields.io/github/contributors/Jfernandez27/EduPro360?label=Contributors&color=8B5CF6&labelColor=101010"
+      alt="Contributors to EduPro360" />
+  </a>
+
+  <!-- Stars of EduPro360 -->
+  <a href="https://github.com/Jfernandez27/EduPro360/stargazers">
+    <img
+      src="https://img.shields.io/github/stars/Jfernandez27/EduPro360?label=Stars&color=F97316&labelColor=101010"
+      alt="Stars of EduPro360" />
+  </a>
+
+  <!-- Last Commit on EduPro360 -->
+  <a href="https://github.com/Jfernandez27/EduPro360/commits">
+    <img
+      src="https://img.shields.io/github/last-commit/Jfernandez27/EduPro360?label=Last%20Commit&color=0CA5E9&labelColor=101010"
+      alt="Last Commit on EduPro360" />
+  </a>
+
+  <!-- Languages Count in EduPro360 -->
+  <a href="https://github.com/Jfernandez27/EduPro360">
+    <img
+      src="https://img.shields.io/github/languages/count/Jfernandez27/EduPro360?label=Languages&color=D946EF&labelColor=101010"
+      alt="Languages Count in EduPro360" />
   </a>
 </div>
 
