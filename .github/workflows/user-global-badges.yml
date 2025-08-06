@@ -18,11 +18,12 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Instalar GH CLI y badgen-cli
+      - name: Instalar GH CLI, badgen-cli y badgen-icons
         run: |
           sudo apt-get update
           sudo apt-get install -y gh
           npm install -g badgen-cli
+          npm install -g badgen-icons
 
       - name: Autenticar GH CLI con PAT
         run: |
@@ -87,16 +88,16 @@ jobs:
           echo "FOLLOWERS=$FOLLOWERS" >> $GITHUB_ENV
           echo "STARRED=$STARRED" >> $GITHUB_ENV
 
-      - name: Generar badges SVG
+      - name: Generar badges SVG con estilo Shields.io
         run: |
           mkdir -p badges
-          badgen --label="Repositorios" --status="$REPO_COUNT" --color="0EA5E9" > badges/public-repos.svg
-          badgen --label="Commits Totales" --status="$COMMIT_COUNT" --color="10B981" > badges/total-commits.svg
-          badgen --label="PR Contributions" --status="$PR_CONTRIB" --color="22C55E" > badges/pr-contrib.svg
-          badgen --label="Issue Contributions" --status="$ISSUE_CONTRIB" --color="DC2626" > badges/issue-contrib.svg
-          badgen --label="Followers" --status="$FOLLOWERS" --color="FACC15" > badges/followers.svg
-          badgen --label="Starred Repos" --status="$STARRED" --color="F97316" > badges/starred.svg
-          badgen --label="Languages" --status="PHP | Python | JS" --color="D946EF" > badges/languages.svg
+          badgen --label="Repositories" --status="$REPO_COUNT" --color="0EA5E9" --label-color="101010" --icon="github" > badges/public-repos.svg
+          badgen --label="Total Commits" --status="$COMMIT_COUNT" --color="10B981" --label-color="101010" --icon="git" > badges/total-commits.svg
+          badgen --label="PR Contributions" --status="$PR_CONTRIB" --color="22C55E" --label-color="101010" --icon="git-pull-request" > badges/pr-contrib.svg
+          badgen --label="Issue Contributions" --status="$ISSUE_CONTRIB" --color="DC2626" --label-color="101010" --icon="issue-opened" > badges/issue-contrib.svg
+          badgen --label="Followers" --status="$FOLLOWERS" --color="FACC15" --label-color="101010" --icon="people" > badges/followers.svg
+          badgen --label="Starred Repositories" --status="$STARRED" --color="F97316" --label-color="101010" --icon="star" > badges/starred.svg
+          badgen --label="Languages" --status="PHP | Python | JS" --color="D946EF" --label-color="101010" --icon="code" > badges/languages.svg
 
       - name: Commit y push de badges
         uses: stefanzweifel/git-auto-commit-action@v4
