@@ -60,14 +60,14 @@ I'm a software developer from Venezuela based in Santiago, Chile, passionate abo
 
 ## 📊 My Statistics
 
-<div align="center" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 20px; margin-bottom: 60px;">
-  <img src="./badges/public-repos.svg" alt="Repositories" title="Repositories" style="height: 28px;" />
-  <img src="./badges/total-commits.svg" alt="Total Commits" title="Total Commits" style="height: 28px;" />
-  <img src="./badges/pr-contrib.svg" alt="PR Contributions" title="PR Contributions" style="height: 28px;" />
-  <img src="./badges/issue-contrib.svg" alt="Issue Contributions" title="Issue Contributions" style="height: 28px;" />
-  <img src="./badges/followers.svg" alt="Followers" title="Followers" style="height: 28px;" />
-  <img src="./badges/starred.svg" alt="Starred Repositories" title="Starred Repositories" style="height: 28px;" />
-  <img src="./badges/languages.svg" alt="Languages" title="Languages" style="height: 28px;" />
+<div align="center" style="margin-bottom: 40px;">
+  <img src="./badges/public-repos.svg" alt="Repositories" title="Repositories" />
+  <img src="./badges/total-commits.svg" alt="Total Commits" title="Total Commits"" />
+  <img src="./badges/pr-contrib.svg" alt="PR Contributions" title="PR Contributions" />
+  <img src="./badges/issue-contrib.svg" alt="Issue Contributions" title="Issue Contributions"  />
+  <img src="./badges/followers.svg" alt="Followers" title="Followers" />
+  <img src="./badges/starred.svg" alt="Starred Repositories" title="Starred Repositories" />
+  <img src="./badges/languages.svg" alt="Languages" title="Languages"  />
 </div>
 
 ---
@@ -82,11 +82,29 @@ I'm a software developer from Venezuela based in Santiago, Chile, passionate abo
 
 ## 📫 How to Reach Me
 
-- Website: [id3a.cl](https://id3a.cl)  
-- Discord: jefm27  
-- Email: [jesus@id3a.cl](mailto:jesus@id3a.cl)  
-- LinkedIn: [linkedin.com/in/jesusfernandezmachin](https://www.linkedin.com/in/jesusfernandezmachin/)  
-- Twitter: [@jefm27](https://x.com/jefm27)
+<div align="center" style="margin-bottom: 40px;">
+  <a href="https://id3a.cl">
+    <img src="https://img.shields.io/badge/Website-id3a.cl-F97316?logo=google-chrome&logoColor=white&labelColor=101010" alt="Website" />
+  </a>
+  <a href="mailto:jesus@id3a.cl">
+    <img src="https://img.shields.io/badge/Email-jesus@id3a.cl-D44638?logo=gmail&logoColor=white&labelColor=101010" alt="Email" />
+  </a>
+  <a href="https://www.linkedin.com/in/jesusfernandezmachin/">
+    <img src="https://img.shields.io/badge/LinkedIn-jesusfernandezmachin-0A66C2?logo=linkedin&logoColor=white&labelColor=101010" alt="LinkedIn" />
+  </a>
+  <a href="https://discord.com/channels/@me/1126741718113472563">
+    <img src="https://img.shields.io/badge/Discord-jefm27-5865F2?logo=discord&logoColor=white&labelColor=101010" alt="Discord" />
+  </a>
+  <a href="https://stackoverflow.com/users/13946388/jesus-fernandez">
+    <img src="https://img.shields.io/badge/StackOverflow-Jesus%20Fernandez-F48024?logo=stackoverflow&logoColor=white&labelColor=101010" alt="Stack Overflow" />
+  </a>
+  <a href="https://dev.to/jfernandez27">
+    <img src="https://img.shields.io/badge/Dev.to-jfernandez27-0A0A0A?logo=dev.to&logoColor=white&labelColor=101010" alt="Dev.to" />
+  </a>
+  <a href="https://wa.me/56952246339">
+    <img src="https://img.shields.io/badge/WhatsApp-%2B56%209%205224%206339-25D366?logo=whatsapp&logoColor=white&labelColor=101010" alt="WhatsApp Business" />
+  </a>
+</div>
 
 ---
 
