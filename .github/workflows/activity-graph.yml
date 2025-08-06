@@ -1,0 +1,19 @@
+name: Update Activity Graph
+
+on:
+  schedule:
+    - cron: '0 1 * * *'       # Corre a la 1 AM UTC cada día
+  workflow_dispatch:         # Permite disparar manualmente
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Generate Activity Graph
+        uses: ahmedkhalf/github-readme-activity-graph@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          output: 'README-activity.svg'
