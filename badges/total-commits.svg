@@ -1,20 +1,16 @@
-<svg width="52.2" height="20" viewBox="0 0 522 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="260">
-  <title>260</title>
-  <linearGradient id="FaYoF" x2="0" y2="100%">
+<svg width="32.5" height="20" viewBox="0 0 325 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="263">
+  <title>263</title>
+  <linearGradient id="yNZRk" x2="0" y2="100%">
     <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
     <stop offset="1" stop-opacity=".1"/>
   </linearGradient>
-  <mask id="nCtcT"><rect width="522" height="200" rx="30" fill="#FFF"/></mask>
-  <g mask="url(#nCtcT)">
-    <rect width="212" height="200" fill="#555"/>
-    <rect width="310" height="200" fill="#10B981" x="212"/>
-    <rect width="522" height="200" fill="url(#FaYoF)"/>
+  <mask id="VwGEb"><rect width="325" height="200" rx="30" fill="#FFF"/></mask>
+  <g mask="url(#VwGEb)">
+    <rect width="325" height="200" fill="#10B981" x="0"/>
+    <rect width="325" height="200" fill="url(#yNZRk)"/>
   </g>
   <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
-    <text x="172" y="148" textLength="0" fill="#000" opacity="0.25"></text>
-    <text x="162" y="138" textLength="0"></text>
-    <text x="267" y="148" textLength="210" fill="#000" opacity="0.25">260</text>
-    <text x="257" y="138" textLength="210">260</text>
+    <text x="65" y="148" textLength="210" fill="#000" opacity="0.25">263</text>
+    <text x="55" y="138" textLength="210">263</text>
   </g>
-  <image x="40" y="35" width="130" height="130" xlink:href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZGIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjMuNTQ2IDEwLjkzTDEzLjA2Ny40NTJjLS42MDQtLjYwMy0xLjU4Mi0uNjAzLTIuMTg4IDBMOC43MDggMi42MjdsMi43NiAyLjc2Yy42NDUtLjIxNSAxLjM3OS0uMDcgMS44ODkuNDQxLjUxNi41MTUuNjU4IDEuMjU4LjQzOCAxLjlsMi42NTggMi42NmMuNjQ1LS4yMjMgMS4zODctLjA3OCAxLjkuNDM1LjcyMS43Mi43MjEgMS44ODQgMCAyLjYwNC0uNzE5LjcxOS0xLjg4MS43MTktMi42IDAtLjUzOS0uNTQxLS42NzQtMS4zMzctLjQwNC0xLjk5NkwxMi44NiA4Ljk1NXY2LjUyNWMuMTc2LjA4Ni4zNDIuMjAzLjQ4OC4zNDguNzEzLjcyMS43MTMgMS44ODMgMCAyLjYtLjcxOS43MjEtMS44ODkuNzIxLTIuNjA5IDAtLjcxOS0uNzE5LS43MTktMS44NzkgMC0yLjU5OC4xODItLjE4LjM4Ny0uMzE2LjYwNS0uNDA2VjguODM1Yy0uMjE3LS4wOTEtLjQyNC0uMjIyLS42LS40MDEtLjU0NS0uNTQ1LS42NzYtMS4zNDItLjM5Ni0yLjAwOUw3LjYzNiAzLjcuNDUgMTAuODgxYy0uNi42MDUtLjYgMS41ODQgMCAyLjE4OWwxMC40OCAxMC40NzdjLjYwNC42MDQgMS41ODIuNjA0IDIuMTg2IDBsMTAuNDMtMTAuNDNjLjYwNS0uNjAzLjYwNS0xLjU4MiAwLTIuMTg3Ii8+PC9zdmc+Cg=="/>
 </svg>
