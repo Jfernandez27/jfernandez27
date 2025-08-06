@@ -21,10 +21,10 @@ I'm a software developer from Venezuela based in Santiago, Chile, passionate abo
 ## 🛠️ Tech Stack
 
 **Backend:** PHP, Laravel, Node.js, Python  
-**Frontend:** Vue.js, Tailwind CSS  
+**Frontend:** Tailwind CSS, Bootstrap, VueJs, React
 **Databases:** MySQL, PostgreSQL, MariaDB  
-**Testing:** PHPUnit, Jest  
-**Monitoring:** Sentry, New Relic  
+**Testing:** PHPUnit, Jest, JMeter
+**Monitoring:** Datadog, Grafana  
 **DevOps & Cloud:** Docker, GitHub Actions, AWS (EC2, S3, RDS)
 
 ---
