@@ -1,13 +1,13 @@
 <svg width="18.5" height="20" viewBox="0 0 185 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="2">
   <title>2</title>
-  <linearGradient id="klgCZ" x2="0" y2="100%">
+  <linearGradient id="pfrrn" x2="0" y2="100%">
     <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
     <stop offset="1" stop-opacity=".1"/>
   </linearGradient>
-  <mask id="Atnka"><rect width="185" height="200" rx="30" fill="#FFF"/></mask>
-  <g mask="url(#Atnka)">
+  <mask id="AUAST"><rect width="185" height="200" rx="30" fill="#FFF"/></mask>
+  <g mask="url(#AUAST)">
     <rect width="185" height="200" fill="#FACC15" x="0"/>
-    <rect width="185" height="200" fill="url(#klgCZ)"/>
+    <rect width="185" height="200" fill="url(#pfrrn)"/>
   </g>
   <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
     <text x="65" y="148" textLength="70" fill="#000" opacity="0.25">2</text>
