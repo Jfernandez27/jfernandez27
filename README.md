@@ -6,37 +6,41 @@ I’m a software developer from Venezuela based in Santiago, Chile, building Saa
 
 ## 🚀 What I’m Working On
 
-- **EduPro360** (Venezuela): A school-management SaaS tailored to Venezuelan curricula and workflows.  
-- **Condo360**: An end-to-end condominium management platform (in development).  
-- **Seduc Servicios** ([dev.seduc.cl](https://dev.seduc.cl)): Streamlining educational administration in Chile.  
-- Powering backends with **Node.js** & **Express**.  
-- Crafting high-performance PHP applications in **Laravel**.  
+| Project         | Description                                                  | Tech Stack                    | Link                                 |
+| --------------- | ------------------------------------------------------------ | ----------------------------- | ------------------------------------ |
+| EduPro360       | School-management SaaS tailored to Venezuelan curricula and workflows. (in development)      | Laravel, Node.js, MariaDB, Tailwind       |  -                              |
+| Condo360        | End-to-end condominium management platform (in development) | Laravel, MariaDB, Tailwind      | -                                    |
+| Seduc Servicios | Streamlining educational administration in Chile             | PHP, MySQL, AWS               | [dev.seduc.cl](https://dev.seduc.cl) |
+
+
+-   Powering backends with **Node.js** & **Express**.
+-   Crafting high-performance PHP applications in **Laravel**.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- PHP & Laravel  
-- JavaScript (ES6+) & Node.js  
-- Python  
-- MySQL & PostgreSQL  
-- Docker & GitHub Actions (CI/CD)  
-- AWS (EC2, S3, RDS)  
+-   PHP & Laravel
+-   JavaScript (ES6+) & Node.js
+-   Python
+-   MySQL & PostgreSQL
+-   Docker & GitHub Actions (CI/CD)
+-   AWS (EC2, S3, RDS)
 
 ---
 
 ## 🎓 Certifications
 
-- Google Project Management Professional Certificate _(in progress)_  
-- AWS Certified Solutions Architect – Associate _(in progress)_  
+-   Google Project Management Professional Certificate _(in progress)_
+-   AWS Certified Solutions Architect – Associate _(in progress)_
 
 ---
 
 ## 🎯 Goals
 
-- Master design patterns and SOLID principles in Node.js, Express, and Laravel.  
-- Architect fault-tolerant, microservices-ready APIs.  
-- Optimize cloud costs while ensuring high availability.  
+-   Master design patterns and SOLID principles in Node.js, Express, and Laravel.
+-   Architect fault-tolerant, microservices-ready APIs.
+-   Optimize cloud costs while ensuring high availability.
 
 ---
 
@@ -80,67 +84,26 @@ I’m a software developer from Venezuela based in Santiago, Chile, building Saa
 ## 📊 My Statistics
 
 <div align="center">
-  <!-- Commits Today (static badge style) -->
+  <a href="https://github.com/Jfernandez27?tab=repositories">
+    <img src="./badges/public-repos.svg" alt="Repositories" />
+  </a>
+  <a href="https://github.com/Jfernandez27">
+    <img src="./badges/total-commits.svg" alt="Commits Totales" />
+  </a>
+  <a href="https://github.com/Jfernandez27">
+    <img src="./badges/pr-contrib.svg" alt="PR Contributions" />
+  </a>
+  <a href="https://github.com/Jfernandez27">
+    <img src="./badges/issue-contrib.svg" alt="Issue Contributions" />
+  </a>
+  <a href="https://github.com/Jfernandez27?tab=followers">
+    <img src="./badges/followers.svg" alt="Followers" />
+  </a>
+  <a href="https://github.com/Jfernandez27?tab=stars">
+    <img src="./badges/starred.svg" alt="Starred Repos" />
+  </a>
   <a href="https://github.com/Jfernandez27/EduPro360">
-    <img
-      src="https://img.shields.io/badge/Commits–Today-3B82F6?logo=github&labelColor=101010"
-      alt="Commits Today" />
-  </a>
-
-  <!-- Open PRs for EduPro360 -->
-  <a href="https://github.com/Jfernandez27/EduPro360/pulls">
-    <img
-      src="https://img.shields.io/github/issues-pr/Jfernandez27/EduPro360?label=Open%20PRs&color=22C55E&labelColor=101010"
-      alt="Open PRs for EduPro360" />
-  </a>
-
-  <!-- Open Issues for EduPro360 -->
-  <a href="https://github.com/Jfernandez27/EduPro360/issues">
-    <img
-      src="https://img.shields.io/github/issues/Jfernandez27/EduPro360?label=Open%20Issues&color=DC2626&labelColor=101010"
-      alt="Open Issues for EduPro360" />
-  </a>
-
-  <!-- Forks of EduPro360 -->
-  <a href="https://github.com/Jfernandez27/EduPro360/network/members">
-    <img
-      src="https://img.shields.io/github/forks/Jfernandez27/EduPro360?label=Forks&color=10B981&labelColor=101010"
-      alt="Forks of EduPro360" />
-  </a>
-
-  <!-- Watchers of EduPro360 -->
-  <a href="https://github.com/Jfernandez27/EduPro360/watchers">
-    <img
-      src="https://img.shields.io/github/watchers/Jfernandez27/EduPro360?label=Watchers&color=6366F1&labelColor=101010"
-      alt="Watchers of EduPro360" />
-  </a>
-
-  <!-- Contributors to EduPro360 -->
-  <a href="https://github.com/Jfernandez27/EduPro360/graphs/contributors">
-    <img
-      src="https://img.shields.io/github/contributors/Jfernandez27/EduPro360?label=Contributors&color=8B5CF6&labelColor=101010"
-      alt="Contributors to EduPro360" />
-  </a>
-
-  <!-- Stars of EduPro360 -->
-  <a href="https://github.com/Jfernandez27/EduPro360/stargazers">
-    <img
-      src="https://img.shields.io/github/stars/Jfernandez27/EduPro360?label=Stars&color=F97316&labelColor=101010"
-      alt="Stars of EduPro360" />
-  </a>
-
-  <!-- Last Commit on EduPro360 -->
-  <a href="https://github.com/Jfernandez27/EduPro360/commits">
-    <img
-      src="https://img.shields.io/github/last-commit/Jfernandez27/EduPro360?label=Last%20Commit&color=0CA5E9&labelColor=101010"
-      alt="Last Commit on EduPro360" />
-  </a>
-
-  <!-- Languages Count in EduPro360 -->
-  <a href="https://github.com/Jfernandez27/EduPro360">
-    <img
-      src="https://img.shields.io/github/languages/count/Jfernandez27/EduPro360?label=Languages&color=D946EF&labelColor=101010"
-      alt="Languages Count in EduPro360" />
+    <img src="./badges/languages.svg" alt="Languages" />
   </a>
 </div>
 
@@ -152,14 +115,14 @@ I’m a software developer from Venezuela based in Santiago, Chile, building Saa
 
 ## 📫 How to Reach Me
 
-- Website: [id3a.cl](https://id3a.cl)  
-- Discord: jefm27  
-- Email: [jesus@id3a.cl](mailto:jesus@id3a.cl)  
-- LinkedIn: [linkedin.com/in/jesusfernandezmachin](https://www.linkedin.com/in/jesusfernandezmachin/)  
-- Twitter: [@jefm27](https://x.com/jefm27)  
+-   Website: [id3a.cl](https://id3a.cl)
+-   Discord: jefm27
+-   Email: [jesus@id3a.cl](mailto:jesus@id3a.cl)
+-   LinkedIn: [linkedin.com/in/jesusfernandezmachin](https://www.linkedin.com/in/jesusfernandezmachin/)
+-   Twitter: [@jefm27](https://x.com/jefm27)
 
 ---
 
 ## 🎵 Fun Fact
 
-When I'm not coding, I play percussion instruments or strategize in games like Minecraft and Age of Empires.  
+When I'm not coding, I play percussion instruments or strategize in games like Minecraft and Age of Empires.
