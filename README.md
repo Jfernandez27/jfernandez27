@@ -14,7 +14,7 @@ Here are some of the main projects I’m currently involved in:
 | ------------------- | --------------------------------------------------------------------- | ----------------------------------- | --------------------------------------------------------- | ------------------------------------ |
 | EduPro360           | School-management SaaS tailored to Venezuelan curricula and workflows | Laravel, Node.js, MariaDB, Tailwind | ![DEV](https://img.shields.io/badge/status-DEV-blue)      | _(private repo)_                     |
 | Condo360            | End-to-end condominium management platform                            | Laravel, MariaDB, Tailwind          | ![PLN](https://img.shields.io/badge/status-PLN-lightgrey) | _(private repo)_                     |
-| FitAdminX           | Administrative and fitness platform for gyms                          | Node.js, Vue.js, MongoDB            | ![HLD](https://img.shields.io/badge/status-HLD-yellow)    | _(private repo)_                     |
+| FitAdminX           | Administrative and fitness platform for gyms                          | Laravel, MariaDB, Tailwind          | ![HLD](https://img.shields.io/badge/status-HLD-yellow)    | _(private repo)_                     |
 | Seduc Servicios 2.0 | Streamlining educational administration in Chile                      | PHP, MySQL, AWS                     | ![MVP](https://img.shields.io/badge/status-MVP-success)   | [dev.seduc.cl](https://dev.seduc.cl) |
 
 <sub>**Status legend:** DEV = Development, PLN = Planning, HLD = On Hold (Paused), MVP = Minimum Viable Product</sub>
