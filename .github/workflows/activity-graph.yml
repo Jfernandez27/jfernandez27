@@ -1,31 +1,31 @@
 name: Update Activity Graph
 
 permissions:
-  contents: write
+    contents: write
 
 on:
-  schedule:
-    - cron: '0 1 * * *'
-  workflow_dispatch:
+    schedule:
+        - cron: '0 1 * * *'
+    workflow_dispatch:
 
 jobs:
-  generate:
-    runs-on: ubuntu-latest
+    generate:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout del repo
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: true
+        steps:
+            - name: Checkout del repo
+              uses: actions/checkout@v3
+              with:
+                  persist-credentials: true
 
-      - name: Descargar SVG de Activity Graph (30 días)
-        run: |
-          curl "https://github-readme-activity-graph.vercel.app/graph?username=Jfernandez27&theme=react-dark&days=30" \
-            -o README-activity.svg
+            - name: Descargar SVG de Activity Graph (30 días)
+              run: |
+                  curl "https://github-readme-activity-graph.vercel.app/graph?username=Jfernandez27&theme=merko&days=30&line=F97316&" \
+                    -o README-activity.svg
 
-      - name: Commit y push del SVG
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "chore: update Activity Graph (30 días)"
-          file_pattern: "README-activity.svg"
-          token: ${{ secrets.GITHUB_TOKEN }}
+            - name: Commit y push del SVG
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  commit_message: 'chore: update Activity Graph (30 días)'
+                  file_pattern: 'README-activity.svg'
+                  token: ${{ secrets.GITHUB_TOKEN }}
