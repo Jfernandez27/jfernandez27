@@ -7,23 +7,25 @@ Esta documentación detalla la configuración técnica completa para el mantenim
 ### Personal Access Token (PAT)
 
 1. **Crear el token**:
-   - Ve a GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
-   - Genera un nuevo token con los siguientes permisos:
-     - `repo` (acceso completo a repositorios)
-     - `read:user` (leer información del usuario)
-     - `read:org` (leer información de organizaciones)
+
+    - Ve a GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
+    - Genera un nuevo token con los siguientes permisos:
+        - `repo` (acceso completo a repositorios)
+        - `read:user` (leer información del usuario)
+        - `read:org` (leer información de organizaciones)
 
 2. **Configurar el secreto**:
-   - En el repositorio → Settings → Secrets and variables → Actions
-   - Crear nuevo secreto: `PAT_TOKEN`
-   - Pegar el token generado
+    - En el repositorio → Settings → Secrets and variables → Actions
+    - Crear nuevo secreto: `PAT_TOKEN`
+    - Pegar el token generado
 
 ### GitHub Token (automático)
 
 El `GITHUB_TOKEN` se genera automáticamente y tiene permisos limitados para:
-- Hacer commits
-- Push de cambios
-- Leer repositorio
+
+-   Hacer commits
+-   Push de cambios
+-   Leer repositorio
 
 ## 📋 Dependencias del Sistema
 
@@ -33,9 +35,6 @@ El `GITHUB_TOKEN` se genera automáticamente y tiene permisos limitados para:
 # GitHub CLI
 sudo apt-get update
 sudo apt-get install -y gh
-
-# Make Issue Badge (Node.js package)
-npm install -g make-issue-badge
 ```
 
 ### En desarrollo local:
@@ -43,14 +42,12 @@ npm install -g make-issue-badge
 ```bash
 # macOS
 brew install gh
-npm install -g make-issue-badge
 
 # Ubuntu/Debian
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 sudo apt update
 sudo apt install gh
-npm install -g make-issue-badge
 ```
 
 ## 🔍 API de GitHub GraphQL
@@ -58,86 +55,66 @@ npm install -g make-issue-badge
 ### Consulta de métricas de usuario:
 
 ```graphql
-query($login: String!) {
-  user(login: $login) {
-    repositories(ownerAffiliations: [OWNER], isFork: false) { 
-      totalCount 
+query ($login: String!) {
+    user(login: $login) {
+        repositories(ownerAffiliations: [OWNER], isFork: false) {
+            totalCount
+        }
+        contributionsCollection {
+            totalCommitContributions
+            totalPullRequestContributions
+            totalIssueContributions
+        }
+        followers {
+            totalCount
+        }
+        starredRepositories {
+            totalCount
+        }
     }
-    contributionsCollection {
-      totalCommitContributions
-      totalPullRequestContributions
-      totalIssueContributions
-    }
-    followers { totalCount }
-    starredRepositories { totalCount }
-  }
 }
 ```
 
 ### Consulta de lenguajes por repositorio:
 
 ```graphql
-query($owner: String!, $name: String!) {
-  repository(owner: $owner, name: $name) {
-    languages { totalCount }
-  }
+query ($owner: String!, $name: String!) {
+    repository(owner: $owner, name: $name) {
+        languages {
+            totalCount
+        }
+    }
 }
 ```
 
 ### Límites de la API:
 
-- **REST API**: 5,000 requests/hora
-- **GraphQL API**: 5,000 points/hora
-- **Authenticated requests**: Límites más altos
+-   **REST API**: 5,000 requests/hora
+-   **GraphQL API**: 5,000 points/hora
+-   **Authenticated requests**: Límites más altos
 
 ## 🎨 Generación de Badges
 
-### Comando make-issue-badge:
+### Generación de Badges con Shields.io
+
+Los badges se generan usando la API de Shields.io y `curl`. Ejemplo:
 
 ```bash
-make-issue-badge \
-  --count=123 \
-  --label="Texto del Badge" \
-  --color=HEX_COLOR \
-  --style=flat-square \
-  > output.svg
+curl -s -o badges/public-repos.svg "https://img.shields.io/badge/Repositories-123-0EA5E9?style=flat&labelColor=101010"
 ```
 
-### Parámetros disponibles:
-
-- `--count`: Número a mostrar
-- `--label`: Texto del badge
-- `--color`: Color en hexadecimal (sin #)
-- `--style`: Estilo del badge
-  - `flat` (predeterminado)
-  - `flat-square`
-  - `plastic`
-  - `for-the-badge`
-  - `social`
+Puedes personalizar el texto, color y estilo directamente en la URL.
 
 ### Colores utilizados:
 
 ```bash
-# Repositorios: Azul cielo
---color=0EA5E9
-
-# Commits: Verde esmeralda  
---color=10B981
-
-# PRs: Verde lima
---color=22C55E
-
-# Issues: Rojo
---color=DC2626
-
-# Followers: Amarillo
---color=FACC15
-
-# Starred: Naranja
---color=F97316
-
-# Languages: Magenta
---color=D946EF
+# Repositorios: Azul cielo      0EA5E9
+# Commits: Verde esmeralda      10B981
+# PRs: Verde lima               22C55E
+# Issues: Rojo                  DC2626
+# Followers: Amarillo           FACC15
+# Starred: Naranja              F97316
+# Languages: Magenta            D946EF
 ```
 
 ## 📊 Gráfico de Actividad
@@ -154,24 +131,24 @@ https://github-readme-activity-graph.vercel.app/graph?username=USERNAME&theme=TH
 
 ### Parámetros:
 
-- `username`: Nombre de usuario de GitHub
-- `theme`: Tema visual
-  - `react-dark` (actual)
-  - `github`
-  - `xcode`
-  - `rogue`
-  - `merko`
-  - `gruvbox`
-- `days`: Número de días (30 por defecto)
+-   `username`: Nombre de usuario de GitHub
+-   `theme`: Tema visual
+    -   `react-dark` (actual)
+    -   `github`
+    -   `xcode`
+    -   `rogue`
+    -   `merko`
+    -   `gruvbox`
+-   `days`: Número de días (30 por defecto)
 
 ### Temas disponibles:
 
-- `react-dark`: Fondo oscuro con colores modernos
-- `github`: Tema similar a GitHub
-- `xcode`: Estilo Xcode
-- `rogue`: Colores oscuros y contrastantes
-- `merko`: Verde y negro
-- `gruvbox`: Paleta retro
+-   `react-dark`: Fondo oscuro con colores modernos
+-   `github`: Tema similar a GitHub
+-   `xcode`: Estilo Xcode
+-   `rogue`: Colores oscuros y contrastantes
+-   `merko`: Verde y negro
+-   `gruvbox`: Paleta retro
 
 ## 🔄 Flujo de Trabajo Automatizado
 
@@ -231,8 +208,8 @@ gh auth status
 # Probar consulta GraphQL
 gh api graphql -f query='query { viewer { login } }'
 
-# Generar badge de prueba
-make-issue-badge --count=42 --label="Test" --color=00FF00 > test.svg
+# Generar badge de prueba con Shields.io
+curl -s -o test.svg "https://img.shields.io/badge/Test-42-00FF00?style=flat&labelColor=101010"
 
 # Verificar curl para activity graph
 curl "https://github-readme-activity-graph.vercel.app/graph?username=Jfernandez27&theme=react-dark&days=30" -o test-activity.svg
@@ -249,11 +226,11 @@ curl "https://github-readme-activity-graph.vercel.app/graph?username=Jfernandez2
 
 ### Buenas prácticas:
 
-- ✅ Usar PAT con permisos mínimos necesarios
-- ✅ Rotar tokens periódicamente
-- ✅ No hardcodear tokens en código
-- ✅ Usar secretos de GitHub Actions
-- ✅ Verificar logs por información sensible
+-   ✅ Usar PAT con permisos mínimos necesarios
+-   ✅ Rotar tokens periódicamente
+-   ✅ No hardcodear tokens en código
+-   ✅ Usar secretos de GitHub Actions
+-   ✅ Verificar logs por información sensible
 
 ### Permisos mínimos requeridos:
 

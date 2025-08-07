@@ -10,11 +10,11 @@ I'm committed to continuous learning and thrive in collaborative team environmen
 
 Here are some of the main projects I’m currently involved in:
 
-| Project             | Description                                                           | Tech Stack                          | Status                                                    | Link                                 |
-| ------------------- | --------------------------------------------------------------------- | ----------------------------------- | --------------------------------------------------------- | ------------------------------------ |
-| EduPro360           | School-management SaaS tailored to Venezuelan curricula and workflows | Laravel, Node.js, MariaDB, Tailwind | ![DEV](https://img.shields.io/badge/status-DEV-blue)      | _(private repo)_                     |
-| Condo360            | End-to-end condominium management platform                            | Laravel, MariaDB, Tailwind          | ![PLN](https://img.shields.io/badge/status-PLN-lightgrey) | _(private repo)_                     |
-| FitAdminX           | Administrative and fitness platform for gyms                          | Laravel, MariaDB, Tailwind          | ![HLD](https://img.shields.io/badge/status-HLD-yellow)    | _(private repo)_                     |
+| Project             | Description                                                           | Tech Stack                          | Status                                                    | Link                                                                                      |
+| ------------------- | --------------------------------------------------------------------- | ----------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| EduPro360           | School-management SaaS tailored to Venezuelan curricula and workflows | Laravel, Node.js, MariaDB, Tailwind | ![DEV](https://img.shields.io/badge/status-DEV-blue)      | _(private repo)_                                                                          |
+| Condo360            | End-to-end condominium management platform                            | Laravel, MariaDB, Tailwind          | ![PLN](https://img.shields.io/badge/status-PLN-lightgrey) | _(private repo)_                                                                          |
+| FitAdminX           | Administrative and fitness platform for gyms                          | Laravel, MariaDB, Tailwind          | ![HLD](https://img.shields.io/badge/status-HLD-yellow)    | _(private repo)_                                                                          |
 | Seduc Servicios 2.0 | Streamlining educational administration in Chile                      | PHP, MySQL, AWS                     | ![MVP](https://img.shields.io/badge/status-MVP-success)   | <a href="https://dev.seduc.cl" target="_blank" rel="noopener noreferrer">dev.seduc.cl</a> |
 
 <sub>**Status legend:** DEV = Development, PLN = Planning, HLD = On Hold (Paused), MVP = Minimum Viable Product</sub>
