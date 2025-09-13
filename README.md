@@ -73,13 +73,13 @@ Here are some of the main projects I’m currently involved in:
 ## 📊 My Statistics
 
 <div align="center">
-  <img src="./badges/public-repos.svg" alt="Repositories" title="Repositories" style="margin-right: 8px; cursor: default; filter: none;" />
-  <img src="./badges/total-commits.svg" alt="Total Commits" title="Total Commits" style="margin-right: 8px; cursor: default; filter: none;" />
-  <img src="./badges/pr-contrib.svg" alt="PR Contributions" title="PR Contributions" style="margin-right: 8px; cursor: default; filter: none;" />
-  <img src="./badges/issue-contrib.svg" alt="Issue Contributions" title="Issue Contributions" style="margin-right: 8px; cursor: default; filter: none;" />
-  <img src="./badges/followers.svg" alt="Followers" title="Followers" style="margin-right: 8px; cursor: default; filter: none;" />
-  <img src="./badges/starred.svg" alt="Starred Repositories" title="Starred Repositories" style="margin-right: 8px; cursor: default; filter: none;" />
-  <img src="./badges/languages.svg" alt="Languages" title="Languages" style="margin-right: 8px; cursor: default; filter: none;" />
+  <img src="./badges/public-repos.svg" alt="Repositories" title="Repositories" style="margin-right: 8px; cursor: default; filter: none; opacity: 1; transition: none;" />
+  <img src="./badges/total-commits.svg" alt="Total Commits" title="Total Commits" style="margin-right: 8px; cursor: default; filter: none; opacity: 1; transition: none;" />
+  <img src="./badges/pr-contrib.svg" alt="PR Contributions" title="PR Contributions" style="margin-right: 8px; cursor: default; filter: none; opacity: 1; transition: none;" />
+  <img src="./badges/issue-contrib.svg" alt="Issue Contributions" title="Issue Contributions" style="margin-right: 8px; cursor: default; filter: none; opacity: 1; transition: none;" />
+  <img src="./badges/followers.svg" alt="Followers" title="Followers" style="margin-right: 8px; cursor: default; filter: none; opacity: 1; transition: none;" />
+  <img src="./badges/starred.svg" alt="Starred Repositories" title="Starred Repositories" style="margin-right: 8px; cursor: default; filter: none; opacity: 1; transition: none;" />
+  <img src="./badges/languages.svg" alt="Languages" title="Languages" style="margin-right: 8px; cursor: default; filter: none; opacity: 1; transition: none;" />
 </div>
 
 ---
