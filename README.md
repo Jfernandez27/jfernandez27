@@ -31,11 +31,11 @@ Here are some of the main projects I’m currently involved in:
 ## 🛠️ Tech Stack
 
 -   **Backend:** PHP, Laravel, Node.js, Python
--   **Frontend:** Tailwind CSS, Bootstrap, VueJs, React
+-   **Frontend:** Tailwind CSS, Bootstrap, VueJs, React, TypeScript
 -   **Databases:** MySQL, PostgreSQL, MariaDB
 -   **Testing:** PHPUnit, Jest, JMeter
 -   **Monitoring:** Datadog, Grafana
--   **DevOps & Cloud:** Docker, GitHub Actions, AWS (EC2, S3, RDS)
+-   **DevOps & Cloud:** Docker, Kubernetes, GitHub Actions, AWS (EKS, S3, RDS)
 
 ---
 
@@ -74,6 +74,8 @@ Here are some of the main projects I’m currently involved in:
   <a href="https://www.postgresql.org/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/PostgreSQL-13.x-336791?logo=postgresql&logoColor=white&labelColor=101010" alt="PostgreSQL" /></a>
   <a href="https://www.docker.com/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Docker-24.x-2496ED?logo=docker&logoColor=white&labelColor=101010" alt="Docker" /></a>
   <a href="https://vuejs.org/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Vue.js-3.x-4FC08D?logo=vue.js&logoColor=white&labelColor=101010" alt="Vue.js" /></a>
+  <a href="https://react.dev/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/React-19.x-61DAFB?logo=react&logoColor=white&labelColor=101010" alt="React" /></a>
+  <a href="https://www.typescriptlang.org/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white&labelColor=101010" alt="TypeScript" /></a>
   <a href="https://tailwindcss.com/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?logo=tailwind-css&logoColor=white&labelColor=101010" alt="Tailwind CSS" /></a>
 </div>
 
