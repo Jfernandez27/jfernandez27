@@ -102,6 +102,34 @@ jobs:
               | map(.name)
               | join(" | ")')
 
+          TOP_FRAMEWORKS=$(gh api graphql -f query='
+            query($login:String!) {
+              user(login:$login) {
+                repositories(ownerAffiliations:[OWNER], isFork:false, first:100) {
+                  nodes {
+                    repositoryTopics(first:10) {
+                      nodes {
+                        topic { name }
+                      }
+                    }
+                  }
+                }
+              }
+            }' -f login="$GH_USER" --jq '
+              def frameworks: ["laravel","laravel-framework","livewire","filament","react","reactjs","vue","vuejs","nodejs","express","python","web-framework","django","fastapi","tailwindcss","typescript","php"];
+              [.data.user.repositories.nodes[].repositoryTopics.nodes[].topic.name]
+              | map(select(. as $t | frameworks | index($t)))
+              | group_by(.)
+              | map({name: .[0], count: length})
+              | sort_by(-.count)
+              | .[0:3]
+              | map(.name)
+              | join(" | ")')
+
+          if [ -z "$TOP_FRAMEWORKS" ]; then
+            TOP_FRAMEWORKS="Add topics on GitHub"
+          fi
+
           echo "REPO_COUNT=$REPO_COUNT" >> $GITHUB_ENV
           echo "COMMIT_COUNT=$COMMIT_COUNT" >> $GITHUB_ENV
           echo "PR_CONTRIB=$PR_CONTRIB" >> $GITHUB_ENV
@@ -109,6 +137,7 @@ jobs:
           echo "FOLLOWERS=$FOLLOWERS" >> $GITHUB_ENV
           echo "STARRED=$STARRED" >> $GITHUB_ENV
           echo "TOP_LANGUAGES=$TOP_LANGUAGES" >> $GITHUB_ENV
+          echo "TOP_FRAMEWORKS=$TOP_FRAMEWORKS" >> $GITHUB_ENV
 
       - name: Generar badges SVG con Shields.io
         run: |
@@ -121,6 +150,8 @@ jobs:
           curl -s -o badges/starred.svg "https://img.shields.io/badge/Starred%20Repositories-${STARRED}-F97316?style=flat&labelColor=101010"
           ENCODED_LANGUAGES=$(python3 -c "import urllib.parse,os; print(urllib.parse.quote(os.environ['TOP_LANGUAGES']))")
           curl -s -o badges/languages.svg "https://img.shields.io/badge/Languages-${ENCODED_LANGUAGES}-D946EF?style=flat&labelColor=101010"
+          ENCODED_FRAMEWORKS=$(python3 -c "import urllib.parse,os; print(urllib.parse.quote(os.environ['TOP_FRAMEWORKS']))")
+          curl -s -o badges/frameworks.svg "https://img.shields.io/badge/Frameworks-${ENCODED_FRAMEWORKS}-8B5CF6?style=flat&labelColor=101010"
 
       - name: Commit y push de badges
         uses: stefanzweifel/git-auto-commit-action@v4

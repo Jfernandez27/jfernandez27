@@ -115,7 +115,16 @@ Puedes personalizar el texto, color y estilo directamente en la URL.
 # Followers: Amarillo           FACC15
 # Starred: Naranja              F97316
 # Languages: Magenta            D946EF
+# Frameworks: Violeta           8B5CF6
 ```
+
+### Badge de Frameworks (basado en GitHub Topics)
+
+El badge de "Frameworks" no viene de un dato nativo de la API de GitHub (a diferencia de "Languages", que usa el detector de Linguist). Se calcula agregando los **repository topics** que hayas configurado manualmente en cada repo (Settings → General → Topics), filtrados contra una lista fija de topics conocidos de frameworks/tecnologías en el workflow (`laravel`, `react`, `vue`, `python`, etc.).
+
+- Si un repo no tiene topics configurados, no aporta nada al cálculo.
+- Si ningún repo tiene topics relevantes, el badge muestra "Add topics on GitHub" como aviso.
+- Para que un repo cuente, agrégale topics en GitHub que coincidan con la lista `frameworks` definida en `.github/workflows/user-global-badges.yml`.
 
 ## 📊 Gráfico de Actividad
 
@@ -180,7 +189,8 @@ https://github-readme-activity-graph.vercel.app/graph?username=USERNAME&theme=TH
 │   ├── issue-contrib.svg     # Badge de issues
 │   ├── followers.svg         # Badge de followers
 │   ├── starred.svg           # Badge de starred repos
-│   └── languages.svg         # Badge de lenguajes
+│   ├── languages.svg         # Badge de lenguajes
+│   └── frameworks.svg        # Badge de frameworks (via GitHub Topics)
 ├── .github/
 │   └── workflows/
 │       ├── user-global-badges.yml  # Workflow de badges

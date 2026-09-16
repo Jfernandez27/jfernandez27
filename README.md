@@ -91,6 +91,7 @@ Here are some of the main projects I’m currently involved in:
   <img src="./badges/followers.svg" alt="Followers" title="Followers" style="margin-right: 8px; cursor: default; filter: none; opacity: 1; transition: none;" />
   <img src="./badges/starred.svg" alt="Starred Repositories" title="Starred Repositories" style="margin-right: 8px; cursor: default; filter: none; opacity: 1; transition: none;" />
   <img src="./badges/languages.svg" alt="Languages" title="Languages" style="margin-right: 8px; cursor: default; filter: none; opacity: 1; transition: none;" />
+  <img src="./badges/frameworks.svg" alt="Frameworks" title="Frameworks (from GitHub repo topics)" style="margin-right: 8px; cursor: default; filter: none; opacity: 1; transition: none;" />
 </div>
 
 ---

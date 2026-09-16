@@ -17,6 +17,7 @@ Se ejecuta **diariamente a las 4:00 AM** y actualiza los siguientes badges usand
 -   **Followers**: Número de seguidores
 -   **Starred Repos**: Repositorios marcados con estrella
 -   **Languages**: Tecnologías principales
+-   **Frameworks**: Top 3 frameworks/tecnologías según los topics configurados en tus repos de GitHub
 
 **Archivos generados**: `badges/*.svg`
 
