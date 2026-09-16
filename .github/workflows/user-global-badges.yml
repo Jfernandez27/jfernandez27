@@ -79,12 +79,36 @@ jobs:
               }
             }' -f login="$GH_USER" --jq '.data.user.starredRepositories.totalCount')
 
+          TOP_LANGUAGES=$(gh api graphql -f query='
+            query($login:String!) {
+              user(login:$login) {
+                repositories(ownerAffiliations:[OWNER], isFork:false, first:100) {
+                  nodes {
+                    languages(first:5, orderBy:{field: SIZE, direction: DESC}) {
+                      edges {
+                        size
+                        node { name }
+                      }
+                    }
+                  }
+                }
+              }
+            }' -f login="$GH_USER" --jq '
+              [.data.user.repositories.nodes[].languages.edges[]]
+              | group_by(.node.name)
+              | map({name: .[0].node.name, size: (map(.size) | add)})
+              | sort_by(-.size)
+              | .[0:3]
+              | map(.name)
+              | join(" | ")')
+
           echo "REPO_COUNT=$REPO_COUNT" >> $GITHUB_ENV
           echo "COMMIT_COUNT=$COMMIT_COUNT" >> $GITHUB_ENV
           echo "PR_CONTRIB=$PR_CONTRIB" >> $GITHUB_ENV
           echo "ISSUE_CONTRIB=$ISSUE_CONTRIB" >> $GITHUB_ENV
           echo "FOLLOWERS=$FOLLOWERS" >> $GITHUB_ENV
           echo "STARRED=$STARRED" >> $GITHUB_ENV
+          echo "TOP_LANGUAGES=$TOP_LANGUAGES" >> $GITHUB_ENV
 
       - name: Generar badges SVG con Shields.io
         run: |
@@ -95,7 +119,8 @@ jobs:
           curl -s -o badges/issue-contrib.svg "https://img.shields.io/badge/Issue%20Contributions-${ISSUE_CONTRIB}-DC2626?style=flat&labelColor=101010"
           curl -s -o badges/followers.svg "https://img.shields.io/badge/Followers-${FOLLOWERS}-FACC15?style=flat&labelColor=101010"
           curl -s -o badges/starred.svg "https://img.shields.io/badge/Starred%20Repositories-${STARRED}-F97316?style=flat&labelColor=101010"
-          curl -s -o badges/languages.svg "https://img.shields.io/badge/Languages-PHP%20%7C%20Python%20%7C%20JS-D946EF?style=flat&labelColor=101010"
+          ENCODED_LANGUAGES=$(python3 -c "import urllib.parse,os; print(urllib.parse.quote(os.environ['TOP_LANGUAGES']))")
+          curl -s -o badges/languages.svg "https://img.shields.io/badge/Languages-${ENCODED_LANGUAGES}-D946EF?style=flat&labelColor=101010"
 
       - name: Commit y push de badges
         uses: stefanzweifel/git-auto-commit-action@v4

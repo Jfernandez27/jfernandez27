@@ -186,8 +186,8 @@ https://github-readme-activity-graph.vercel.app/graph?username=USERNAME&theme=TH
 │       ├── user-global-badges.yml  # Workflow de badges
 │       └── activity-graph.yml      # Workflow de gráfico
 └── docs/                     # Documentación
-    ├── ACTUALIZACIÓN.md      # Guía de actualización
-    └── CONFIGURACIÓN.md      # Este archivo
+    ├── UPDATE.md              # Guía de actualización
+    └── CONFIG.md              # Este archivo
 ```
 
 ## 🐛 Debug y Logs
