@@ -22,8 +22,8 @@ Here are some of the main projects I’m currently involved in:
 
 **Other things I’m focusing on:**
 
--   Powering backends with **Node.js** & **Express**
 -   Crafting high-performance PHP applications in **Laravel**
+-   Building **Tepuy**, a Python web framework inspired by Laravel — cloud-native and portable across traditional servers, Kubernetes, and serverless
 -   Exploring new tools and technologies to improve development workflows
 
 ---
@@ -39,16 +39,24 @@ Here are some of the main projects I’m currently involved in:
 
 ---
 
+## 🤖 AI-Assisted Development
+
+-   Daily use of **AI coding agents** (Claude Code) to accelerate development workflows
+-   Running **local LLMs** (Ollama, DeepSeek Coder) in GPU-accelerated dev environments
+-   Integrating AI/LLM capabilities into production products
+
+---
+
 ## 🎓 Certifications
 
--   ⏳ Google Project Management Professional Certificate _(in progress, expected Q4 2025)_
--   ⏳ AWS Certified Solutions Architect – Associate _(in progress, expected Q1 2026)_
+-   ⏳ Google Project Management Professional Certificate _(in progress)_
+-   ⏳ AWS Certified Solutions Architect – Associate _(in progress)_
 
 ---
 
 ## 🎯 Goals
 
--   Master design patterns and SOLID principles in Node.js, Express, and Laravel
+-   Master design patterns and SOLID principles in Laravel and Python
 -   Architect fault-tolerant, microservices-ready APIs
 -   Optimize cloud costs while ensuring high availability
 
@@ -58,8 +66,8 @@ Here are some of the main projects I’m currently involved in:
 
 <div align="center">
   <a href="https://www.php.net/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/PHP-8.3%2B-3B82F6?logo=php&logoColor=white&labelColor=101010" alt="PHP" /></a>
-  <a href="https://laravel.com/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Laravel-11.x-F97316?logo=laravel&logoColor=white&labelColor=101010" alt="Laravel" /></a>
-  <a href="https://nodejs.org/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Node.js-16.x-22C55E?logo=node.js&logoColor=white&labelColor=101010" alt="Node.js" /></a>
+  <a href="https://laravel.com/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Laravel-12.x-F97316?logo=laravel&logoColor=white&labelColor=101010" alt="Laravel" /></a>
+  <a href="https://nodejs.org/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Node.js-24.x_LTS-22C55E?logo=node.js&logoColor=white&labelColor=101010" alt="Node.js" /></a>
   <a href="https://www.python.org/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white&labelColor=101010" alt="Python" /></a>
   <a href="https://www.mysql.com/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/MySQL-8.x-4479A1?logo=mysql&logoColor=white&labelColor=101010" alt="MySQL" /></a>
   <a href="https://mariadb.org/" style="margin-right: 8px;" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/MariaDB-10.x-003545?logo=mariadb&logoColor=white&labelColor=101010" alt="MariaDB" /></a>
