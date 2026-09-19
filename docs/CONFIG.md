@@ -120,7 +120,7 @@ Puedes personalizar el texto, color y estilo directamente en la URL.
 
 ### Badge de Frameworks (basado en GitHub Topics)
 
-El badge de "Frameworks" no viene de un dato nativo de la API de GitHub (a diferencia de "Languages", que usa el detector de Linguist). Se calcula agregando los **repository topics** que hayas configurado manualmente en cada repo (Settings → General → Topics), filtrados contra una lista fija de topics conocidos de frameworks/tecnologías en el workflow (`laravel`, `react`, `vue`, `python`, etc.).
+El badge de "Frameworks" no viene de un dato nativo de la API de GitHub (a diferencia de "Languages", que usa el detector de Linguist). Se calcula agregando los **repository topics** que hayas configurado manualmente en cada repo (Settings → General → Topics), filtrados contra una lista fija de topics de frameworks en el workflow (`laravel`, `livewire`, `react`, `nextjs`, `vue`, `django`, `fastapi`, `tailwindcss`, etc.). Los lenguajes (`php`, `python`, `typescript`) quedan fuera a propósito, porque ya los cubre el badge de Languages.
 
 - Si un repo no tiene topics configurados, no aporta nada al cálculo.
 - Si ningún repo tiene topics relevantes, el badge muestra "Add topics on GitHub" como aviso.
@@ -128,43 +128,34 @@ El badge de "Frameworks" no viene de un dato nativo de la API de GitHub (a difer
 
 ## 📊 Gráfico de Actividad
 
-### Servicio utilizado:
+### Generación propia (sin servicios externos)
 
-**GitHub Readme Activity Graph**: https://github-readme-activity-graph.vercel.app/
+Hasta diciembre de 2025 el gráfico se descargaba de `github-readme-activity-graph.vercel.app`. Ese deployment de terceros fue deshabilitado (responde `402 DEPLOYMENT_DISABLED`), así que ahora el SVG se genera en el propio workflow con `scripts/activity_graph.py`.
 
-### URL de generación:
+El script:
 
+1. Consulta `contributionsCollection.contributionCalendar` en la API GraphQL usando el `gh` CLI (autenticado con `PAT_TOKEN`)
+2. Toma los últimos N días (30 por defecto) y rellena con 0 los días sin contribuciones
+3. Renderiza un gráfico de línea como SVG estático (1200×420) con estilo oscuro: fondo `0a0f0b`, línea `F97316`, puntos `abd200`
+
+Solo usa la librería estándar de Python y `gh`; no hay dependencias que instalar.
+
+### Uso:
+
+```bash
+python3 scripts/activity_graph.py --user Jfernandez27 --days 30 --output README-activity.svg
 ```
-https://github-readme-activity-graph.vercel.app/graph?username=USERNAME&theme=THEME&days=DAYS
-```
 
-### Parámetros:
+### Personalización:
 
--   `username`: Nombre de usuario de GitHub
--   `theme`: Tema visual
-    -   `react-dark` (actual)
-    -   `github`
-    -   `xcode`
-    -   `rogue`
-    -   `merko`
-    -   `gruvbox`
--   `days`: Número de días (30 por defecto)
-
-### Temas disponibles:
-
--   `react-dark`: Fondo oscuro con colores modernos
--   `github`: Tema similar a GitHub
--   `xcode`: Estilo Xcode
--   `rogue`: Colores oscuros y contrastantes
--   `merko`: Verde y negro
--   `gruvbox`: Paleta retro
+Los colores, tamaño y fuente están definidos como constantes al inicio de `scripts/activity_graph.py`.
 
 ## 🔄 Flujo de Trabajo Automatizado
 
 ### Workflow de Badges (`user-global-badges.yml`):
 
 1. **Checkout del repositorio**
-2. **Instalación de dependencias** (gh CLI + make-issue-badge)
+2. **Instalación de dependencias** (gh CLI)
 3. **Autenticación con PAT**
 4. **Consulta a GraphQL API** para obtener métricas
 5. **Generación de badges SVG**
@@ -173,7 +164,7 @@ https://github-readme-activity-graph.vercel.app/graph?username=USERNAME&theme=TH
 ### Workflow de Activity Graph (`activity-graph.yml`):
 
 1. **Checkout del repositorio**
-2. **Descarga del SVG** desde el servicio externo
+2. **Generación del SVG** con `scripts/activity_graph.py` (API GraphQL vía `gh`)
 3. **Commit y push automático**
 
 ## 📝 Estructura de Archivos
@@ -195,6 +186,8 @@ https://github-readme-activity-graph.vercel.app/graph?username=USERNAME&theme=TH
 │   └── workflows/
 │       ├── user-global-badges.yml  # Workflow de badges
 │       └── activity-graph.yml      # Workflow de gráfico
+├── scripts/
+│   └── activity_graph.py     # Generador del gráfico de actividad
 └── docs/                     # Documentación
     ├── UPDATE.md              # Guía de actualización
     └── CONFIG.md              # Este archivo
@@ -221,8 +214,8 @@ gh api graphql -f query='query { viewer { login } }'
 # Generar badge de prueba con Shields.io
 curl -s -o test.svg "https://img.shields.io/badge/Test-42-00FF00?style=flat&labelColor=101010"
 
-# Verificar curl para activity graph
-curl "https://github-readme-activity-graph.vercel.app/graph?username=Jfernandez27&theme=react-dark&days=30" -o test-activity.svg
+# Generar el gráfico de actividad en local
+python3 scripts/activity_graph.py --user Jfernandez27 --days 30 --output test-activity.svg
 ```
 
 ### Errores comunes:
@@ -230,7 +223,7 @@ curl "https://github-readme-activity-graph.vercel.app/graph?username=Jfernandez2
 1. **Token expirado**: Renovar PAT en GitHub Settings
 2. **Permisos insuficientes**: Verificar scopes del token
 3. **Rate limit**: Esperar reset o usar token con mayor límite
-4. **Servicio externo no disponible**: Verificar status del servicio
+4. **Workflow deshabilitado por inactividad**: Reactivar con `gh workflow enable <nombre>`
 
 ## 🔒 Seguridad
 

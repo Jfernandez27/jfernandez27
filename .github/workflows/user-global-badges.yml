@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
         with:
           persist-credentials: true
 
@@ -116,7 +116,7 @@ jobs:
                 }
               }
             }' -f login="$GH_USER" --jq '
-              def frameworks: ["laravel","laravel-framework","livewire","filament","react","reactjs","vue","vuejs","nodejs","express","python","web-framework","django","fastapi","tailwindcss","typescript","php"];
+              def frameworks: ["laravel","laravel-framework","livewire","filament","react","reactjs","nextjs","vue","vuejs","nuxt","express","nestjs","django","fastapi","flask","tailwindcss"];
               [.data.user.repositories.nodes[].repositoryTopics.nodes[].topic.name]
               | map(select(. as $t | frameworks | index($t)))
               | group_by(.)
@@ -154,7 +154,7 @@ jobs:
           curl -s -o badges/frameworks.svg "https://img.shields.io/badge/Frameworks-${ENCODED_FRAMEWORKS}-8B5CF6?style=flat&labelColor=101010"
 
       - name: Commit y push de badges
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 'chore: update global user badges'
           file_pattern: 'badges/*.svg'

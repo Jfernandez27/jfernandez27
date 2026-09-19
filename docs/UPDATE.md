@@ -17,22 +17,28 @@ Se ejecuta **diariamente a las 4:00 AM** y actualiza los siguientes badges usand
 -   **Followers**: Número de seguidores
 -   **Starred Repos**: Repositorios marcados con estrella
 -   **Languages**: Tecnologías principales
--   **Frameworks**: Top 3 frameworks/tecnologías según los topics configurados en tus repos de GitHub
+-   **Frameworks**: Top 3 frameworks según los topics configurados en tus repos de GitHub (solo frameworks, no lenguajes)
 
 **Archivos generados**: `badges/*.svg`
 
 ### 2. Gráfico de Actividad (`.github/workflows/activity-graph.yml`)
 
-Se ejecuta **diariamente a la 1:00 AM** y actualiza:
+Se ejecuta **diariamente a las 4:30 AM UTC** y actualiza:
 
 -   **README-activity.svg**: Gráfico de actividad de los últimos 30 días
+
+El SVG lo genera el script `scripts/activity_graph.py` a partir del calendario de contribuciones de la API GraphQL de GitHub. No depende de ningún servicio externo. Para regenerarlo en local:
+
+```bash
+python3 scripts/activity_graph.py --user Jfernandez27 --days 30 --output README-activity.svg
+```
 
 ## ⚙️ Ejecución Manual
 
 ### Forzar actualización de badges:
 
 ```bash
-gh workflow run "Build extended user & repo badges"
+gh workflow run "Build global user badges"
 ```
 
 ### Forzar actualización del gráfico de actividad:
@@ -154,11 +160,11 @@ schedule:
 3. Confirmar que la carpeta `badges/` existe
 4. Verificar que la URL de Shields.io sea válida y que curl esté instalado
 
-### El gráfico de actividad no aparece:
+### El gráfico de actividad no aparece o no se actualiza:
 
-1. Verificar que el archivo `README-activity.svg` se genera correctamente
-2. Comprobar la URL del servicio de gráficos
-3. Revisar que el nombre de usuario sea correcto
+1. Verificar en **Actions** que el workflow "Update Activity Graph" esté habilitado. GitHub deshabilita los workflows programados tras 60 días sin actividad; se reactiva con `gh workflow enable "Update Activity Graph"`
+2. Revisar los logs del último run: el script falla si `PAT_TOKEN` no es válido o la consulta GraphQL devuelve error
+3. Ejecutar el script en local (ver arriba) para reproducir el problema
 
 ### Error en GraphQL API:
 
@@ -170,7 +176,7 @@ schedule:
 
 -   [GitHub GraphQL API](https://docs.github.com/en/graphql)
 -   [GitHub Actions Docs](https://docs.github.com/en/actions)
--   [Make Issue Badge](https://www.npmjs.com/package/make-issue-badge)
+-   [Shields.io](https://shields.io/)
 -   [GitHub Readme Activity Graph](https://github.com/Ashutosh00710/github-readme-activity-graph)
 
 ## 🔄 Changelog
@@ -180,8 +186,10 @@ schedule:
 -   **2025-01**: Implementación de badges automáticos
 -   **2025-01**: Integración de gráfico de actividad
 -   **2025-01**: Documentación de actualización
+-   **2026-09**: Badge de Frameworks basado en topics; actualización de versiones de Actions y corrección de docs
+-   **2026-09**: El gráfico de actividad se genera con `scripts/activity_graph.py` (el servicio externo de Vercel dejó de funcionar)
 
 ---
 
 **Mantenedor**: Jesus Fernández Machín  
-**Última actualización**: Agosto 2025
+**Última actualización**: Septiembre 2026
