@@ -70,7 +70,7 @@ Para actualizar la información personal, edita directamente `README.md`:
 
     - Reemplaza a Certifications y Goals. Cuando obtengas una certificación, enlázala aquí con su credencial
 
-4. **Contacto**: solo web, email, LinkedIn y Dev.to. Se quitaron WhatsApp, Discord y Stack Overflow a propósito (spam y poco valor)
+4. **Contacto**: web, email, LinkedIn, Dev.to y WhatsApp Business (número comercial). Se quitaron Discord y Stack Overflow a propósito (poco valor)
 
 5. **Badges de tecnologías** (sección "💻 I Code With")
 
@@ -167,7 +167,7 @@ El servidor raw de GitHub cachea 5 minutos y el navegador guarda su copia. Recar
 -   **2026-09**: Badge de Frameworks basado en topics; actualización de versiones de Actions y corrección de docs
 -   **2026-09**: El gráfico de actividad se genera con `scripts/activity_graph.py` (el servicio externo de Vercel dejó de funcionar)
 -   **2026-09**: Un solo workflow, assets publicados en la rama `output`, badges generados con `scripts/build_badges.py` (totales de todos los años), Dependabot para Actions
--   **2026-09**: Badges de rachas y de actividad por proyecto; Languages sin CSS/HTML; topics añadidos a 16 repos; README con ollama-dev-env, idiomas, sección Currently Learning y contacto reducido
+-   **2026-09**: Badges de rachas y de actividad por proyecto; Languages sin CSS/HTML; topics añadidos a 16 repos; README con ollama-dev-env, idiomas, sección Currently Learning; se quitan Discord y Stack Overflow del contacto
 
 ---
 

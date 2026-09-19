@@ -118,6 +118,9 @@ Here are some of the main projects I’m currently involved in:
   <a href="https://dev.to/jfernandez27" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/Dev.to-0A0A0A?logo=dev.to&logoColor=white&labelColor=101010" alt="Dev.to" />
   </a>
+  <a href="https://wa.me/56952246339" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/WhatsApp-%2B56%209%205224%206339-25D366?logo=whatsapp&logoColor=white&labelColor=101010" alt="WhatsApp Business" />
+  </a>
 </div>
 
 ---
