@@ -1,0 +1,74 @@
+name: Update profile assets
+
+permissions:
+  contents: write # push a la rama output
+  actions: write # keepalive: evita que GitHub deshabilite el cron por inactividad
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # Diario a las 04:00 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: update-profile
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v7
+
+      - name: Verificar PAT_TOKEN
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::El secreto PAT_TOKEN no está definido. Ver docs/CONFIG.md."
+            exit 1
+          fi
+          if ! LOGIN=$(gh api graphql -f query='{ viewer { login } }' --jq .data.viewer.login 2>/dev/null); then
+            echo "::error::PAT_TOKEN es inválido o expiró. Genera uno nuevo y actualiza el secreto (docs/CONFIG.md)."
+            exit 1
+          fi
+          echo "Autenticado como $LOGIN"
+
+      - name: Generar badges y gráfico de actividad
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_USER: Jfernandez27
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          python3 scripts/build_badges.py --user "$GH_USER" --output-dir dist/badges
+          python3 scripts/activity_graph.py --user "$GH_USER" --days 30 --output dist/README-activity.svg
+
+      - name: Publicar en la rama output
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          cd dist
+          cat > README.md <<'MD'
+          # Generated assets
+
+          This branch is rewritten daily by the `Update profile assets` workflow.
+          Do not edit by hand; the sources live in `main` under `scripts/`.
+          MD
+          git init -q -b output
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "chore: update profile assets ($(date -u +%Y-%m-%d))"
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" output
+
+      - name: Keepalive del workflow
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api -X PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/update-profile.yml/enable" \
+            && echo "Workflow marcado como activo" \
+            || echo "::warning::No se pudo renovar el keepalive del workflow"
