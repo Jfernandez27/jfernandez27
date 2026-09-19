@@ -106,21 +106,11 @@ Here are some of the main projects I’m currently involved in:
 ## 📫 How to Reach Me
 
 <div align="center">
-  <a href="https://id3a.cl" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/Website-F97316?logo=google-chrome&logoColor=white&labelColor=101010" alt="Website" />
-  </a>
-  <a href="mailto:jesus@id3a.cl" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/Email-D44638?logo=gmail&logoColor=white&labelColor=101010" alt="Email" />
-  </a>
-  <a href="https://www.linkedin.com/in/jesusfernandezmachin/" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white&labelColor=101010" alt="LinkedIn" />
-  </a>
-  <a href="https://dev.to/jfernandez27" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/Dev.to-0A0A0A?logo=dev.to&logoColor=white&labelColor=101010" alt="Dev.to" />
-  </a>
-  <a href="https://wa.me/56952246339" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/WhatsApp-%2B56%209%205224%206339-25D366?logo=whatsapp&logoColor=white&labelColor=101010" alt="WhatsApp Business" />
-  </a>
+  <a href="https://id3a.cl" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Website-id3a.cl-F97316?logo=google-chrome&logoColor=white&labelColor=101010" alt="Website" /></a>
+  <a href="mailto:jesus@id3a.cl" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Email-jesus@id3a.cl-D44638?logo=gmail&logoColor=white&labelColor=101010" alt="Email" /></a>
+  <a href="https://www.linkedin.com/in/jesusfernandezmachin/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/LinkedIn-jesusfernandezmachin-0A66C2?logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHRleHQgeD0iMSIgeT0iMTkiIGZvbnQtZmFtaWx5PSJBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iMTkiIGZpbGw9IiNmZmYiPmluPC90ZXh0Pjwvc3ZnPg==&labelColor=101010" alt="LinkedIn" /></a>
+  <a href="https://dev.to/jfernandez27" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Dev.to-jfernandez27-0A0A0A?logo=dev.to&logoColor=white&labelColor=101010" alt="Dev.to" /></a>
+  <a href="https://wa.me/56952246339" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/WhatsApp-%2B56%209%205224%206339-25D366?logo=whatsapp&logoColor=white&labelColor=101010" alt="WhatsApp Business" /></a>
 </div>
 
 ---
