@@ -1,0 +1,127 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jfernandez27 contribution graph, last 30 days, 322 contributions">
+<title>Jfernandez27's Contribution Graph - last 30 days</title>
+<style>
+  text { font-family: 'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif; fill: #f6f8fa; }
+  .title { font-size: 20px; font-weight: 600; }
+  .subtitle { font-size: 13px; opacity: .8; }
+  .label { font-size: 12px; }
+  .axis { font-size: 13px; font-weight: 500; }
+  .grid { stroke: #f6f8fa; stroke-opacity: .12; stroke-width: 1; }
+  .line { fill: none; stroke: #F97316; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+  .area { fill: #F97316; fill-opacity: .12; }
+  .point { fill: #abd200; stroke: #0a0f0b; stroke-width: 1.5; }
+</style>
+<rect x="0.5" y="0.5" width="1199" height="419" fill="#0a0f0b" stroke="#ffffff" stroke-width="1"/>
+<text x="90" y="36" class="title">Jfernandez27's Contribution Graph</text>
+<text x="90" y="58" class="subtitle">Last 30 days · 322 contributions · Aug 21 – Sep 19, 2026</text>
+<line class="grid" x1="90" x2="1150" y1="350.00" y2="350.00"/>
+<text x="78" y="354.00" class="label" text-anchor="end">0</text>
+<line class="grid" x1="90" x2="1150" y1="311.43" y2="311.43"/>
+<text x="78" y="315.43" class="label" text-anchor="end">20</text>
+<line class="grid" x1="90" x2="1150" y1="272.86" y2="272.86"/>
+<text x="78" y="276.86" class="label" text-anchor="end">40</text>
+<line class="grid" x1="90" x2="1150" y1="234.29" y2="234.29"/>
+<text x="78" y="238.29" class="label" text-anchor="end">60</text>
+<line class="grid" x1="90" x2="1150" y1="195.71" y2="195.71"/>
+<text x="78" y="199.71" class="label" text-anchor="end">80</text>
+<line class="grid" x1="90" x2="1150" y1="157.14" y2="157.14"/>
+<text x="78" y="161.14" class="label" text-anchor="end">100</text>
+<line class="grid" x1="90" x2="1150" y1="118.57" y2="118.57"/>
+<text x="78" y="122.57" class="label" text-anchor="end">120</text>
+<line class="grid" x1="90" x2="1150" y1="80.00" y2="80.00"/>
+<text x="78" y="84.00" class="label" text-anchor="end">140</text>
+<line class="grid" x1="90.00" x2="90.00" y1="80" y2="350"/>
+<text x="90.00" y="372" class="label" text-anchor="middle">21</text>
+<line class="grid" x1="126.55" x2="126.55" y1="80" y2="350"/>
+<text x="126.55" y="372" class="label" text-anchor="middle">22</text>
+<line class="grid" x1="163.10" x2="163.10" y1="80" y2="350"/>
+<text x="163.10" y="372" class="label" text-anchor="middle">23</text>
+<line class="grid" x1="199.66" x2="199.66" y1="80" y2="350"/>
+<text x="199.66" y="372" class="label" text-anchor="middle">24</text>
+<line class="grid" x1="236.21" x2="236.21" y1="80" y2="350"/>
+<text x="236.21" y="372" class="label" text-anchor="middle">25</text>
+<line class="grid" x1="272.76" x2="272.76" y1="80" y2="350"/>
+<text x="272.76" y="372" class="label" text-anchor="middle">26</text>
+<line class="grid" x1="309.31" x2="309.31" y1="80" y2="350"/>
+<text x="309.31" y="372" class="label" text-anchor="middle">27</text>
+<line class="grid" x1="345.86" x2="345.86" y1="80" y2="350"/>
+<text x="345.86" y="372" class="label" text-anchor="middle">28</text>
+<line class="grid" x1="382.41" x2="382.41" y1="80" y2="350"/>
+<text x="382.41" y="372" class="label" text-anchor="middle">29</text>
+<line class="grid" x1="418.97" x2="418.97" y1="80" y2="350"/>
+<text x="418.97" y="372" class="label" text-anchor="middle">30</text>
+<line class="grid" x1="455.52" x2="455.52" y1="80" y2="350"/>
+<text x="455.52" y="372" class="label" text-anchor="middle">31</text>
+<line class="grid" x1="492.07" x2="492.07" y1="80" y2="350"/>
+<text x="492.07" y="372" class="label" text-anchor="middle">1</text>
+<line class="grid" x1="528.62" x2="528.62" y1="80" y2="350"/>
+<text x="528.62" y="372" class="label" text-anchor="middle">2</text>
+<line class="grid" x1="565.17" x2="565.17" y1="80" y2="350"/>
+<text x="565.17" y="372" class="label" text-anchor="middle">3</text>
+<line class="grid" x1="601.72" x2="601.72" y1="80" y2="350"/>
+<text x="601.72" y="372" class="label" text-anchor="middle">4</text>
+<line class="grid" x1="638.28" x2="638.28" y1="80" y2="350"/>
+<text x="638.28" y="372" class="label" text-anchor="middle">5</text>
+<line class="grid" x1="674.83" x2="674.83" y1="80" y2="350"/>
+<text x="674.83" y="372" class="label" text-anchor="middle">6</text>
+<line class="grid" x1="711.38" x2="711.38" y1="80" y2="350"/>
+<text x="711.38" y="372" class="label" text-anchor="middle">7</text>
+<line class="grid" x1="747.93" x2="747.93" y1="80" y2="350"/>
+<text x="747.93" y="372" class="label" text-anchor="middle">8</text>
+<line class="grid" x1="784.48" x2="784.48" y1="80" y2="350"/>
+<text x="784.48" y="372" class="label" text-anchor="middle">9</text>
+<line class="grid" x1="821.03" x2="821.03" y1="80" y2="350"/>
+<text x="821.03" y="372" class="label" text-anchor="middle">10</text>
+<line class="grid" x1="857.59" x2="857.59" y1="80" y2="350"/>
+<text x="857.59" y="372" class="label" text-anchor="middle">11</text>
+<line class="grid" x1="894.14" x2="894.14" y1="80" y2="350"/>
+<text x="894.14" y="372" class="label" text-anchor="middle">12</text>
+<line class="grid" x1="930.69" x2="930.69" y1="80" y2="350"/>
+<text x="930.69" y="372" class="label" text-anchor="middle">13</text>
+<line class="grid" x1="967.24" x2="967.24" y1="80" y2="350"/>
+<text x="967.24" y="372" class="label" text-anchor="middle">14</text>
+<line class="grid" x1="1003.79" x2="1003.79" y1="80" y2="350"/>
+<text x="1003.79" y="372" class="label" text-anchor="middle">15</text>
+<line class="grid" x1="1040.34" x2="1040.34" y1="80" y2="350"/>
+<text x="1040.34" y="372" class="label" text-anchor="middle">16</text>
+<line class="grid" x1="1076.90" x2="1076.90" y1="80" y2="350"/>
+<text x="1076.90" y="372" class="label" text-anchor="middle">17</text>
+<line class="grid" x1="1113.45" x2="1113.45" y1="80" y2="350"/>
+<text x="1113.45" y="372" class="label" text-anchor="middle">18</text>
+<line class="grid" x1="1150.00" x2="1150.00" y1="80" y2="350"/>
+<text x="1150.00" y="372" class="label" text-anchor="middle">19</text>
+<text x="620" y="404" class="axis" text-anchor="middle">Days</text>
+<text transform="translate(28 215) rotate(-90)" class="axis" text-anchor="middle">Contributions</text>
+<polygon class="area" points="90,350 90.00,350.00 126.55,350.00 163.10,350.00 199.66,350.00 236.21,350.00 272.76,350.00 309.31,350.00 345.86,350.00 382.41,350.00 418.97,350.00 455.52,350.00 492.07,350.00 528.62,350.00 565.17,350.00 601.72,350.00 638.28,350.00 674.83,350.00 711.38,350.00 747.93,350.00 784.48,350.00 821.03,350.00 857.59,346.14 894.14,315.29 930.69,315.29 967.24,350.00 1003.79,350.00 1040.34,101.21 1076.90,261.29 1113.45,263.21 1150.00,226.57 1150.00,350"/>
+<polyline class="line" points="90.00,350.00 126.55,350.00 163.10,350.00 199.66,350.00 236.21,350.00 272.76,350.00 309.31,350.00 345.86,350.00 382.41,350.00 418.97,350.00 455.52,350.00 492.07,350.00 528.62,350.00 565.17,350.00 601.72,350.00 638.28,350.00 674.83,350.00 711.38,350.00 747.93,350.00 784.48,350.00 821.03,350.00 857.59,346.14 894.14,315.29 930.69,315.29 967.24,350.00 1003.79,350.00 1040.34,101.21 1076.90,261.29 1113.45,263.21 1150.00,226.57"/>
+<circle class="point" cx="90.00" cy="350.00" r="4"><title>2026-08-21: 0 contributions</title></circle>
+<circle class="point" cx="126.55" cy="350.00" r="4"><title>2026-08-22: 0 contributions</title></circle>
+<circle class="point" cx="163.10" cy="350.00" r="4"><title>2026-08-23: 0 contributions</title></circle>
+<circle class="point" cx="199.66" cy="350.00" r="4"><title>2026-08-24: 0 contributions</title></circle>
+<circle class="point" cx="236.21" cy="350.00" r="4"><title>2026-08-25: 0 contributions</title></circle>
+<circle class="point" cx="272.76" cy="350.00" r="4"><title>2026-08-26: 0 contributions</title></circle>
+<circle class="point" cx="309.31" cy="350.00" r="4"><title>2026-08-27: 0 contributions</title></circle>
+<circle class="point" cx="345.86" cy="350.00" r="4"><title>2026-08-28: 0 contributions</title></circle>
+<circle class="point" cx="382.41" cy="350.00" r="4"><title>2026-08-29: 0 contributions</title></circle>
+<circle class="point" cx="418.97" cy="350.00" r="4"><title>2026-08-30: 0 contributions</title></circle>
+<circle class="point" cx="455.52" cy="350.00" r="4"><title>2026-08-31: 0 contributions</title></circle>
+<circle class="point" cx="492.07" cy="350.00" r="4"><title>2026-09-01: 0 contributions</title></circle>
+<circle class="point" cx="528.62" cy="350.00" r="4"><title>2026-09-02: 0 contributions</title></circle>
+<circle class="point" cx="565.17" cy="350.00" r="4"><title>2026-09-03: 0 contributions</title></circle>
+<circle class="point" cx="601.72" cy="350.00" r="4"><title>2026-09-04: 0 contributions</title></circle>
+<circle class="point" cx="638.28" cy="350.00" r="4"><title>2026-09-05: 0 contributions</title></circle>
+<circle class="point" cx="674.83" cy="350.00" r="4"><title>2026-09-06: 0 contributions</title></circle>
+<circle class="point" cx="711.38" cy="350.00" r="4"><title>2026-09-07: 0 contributions</title></circle>
+<circle class="point" cx="747.93" cy="350.00" r="4"><title>2026-09-08: 0 contributions</title></circle>
+<circle class="point" cx="784.48" cy="350.00" r="4"><title>2026-09-09: 0 contributions</title></circle>
+<circle class="point" cx="821.03" cy="350.00" r="4"><title>2026-09-10: 0 contributions</title></circle>
+<circle class="point" cx="857.59" cy="346.14" r="4"><title>2026-09-11: 2 contributions</title></circle>
+<circle class="point" cx="894.14" cy="315.29" r="4"><title>2026-09-12: 18 contributions</title></circle>
+<circle class="point" cx="930.69" cy="315.29" r="4"><title>2026-09-13: 18 contributions</title></circle>
+<circle class="point" cx="967.24" cy="350.00" r="4"><title>2026-09-14: 0 contributions</title></circle>
+<circle class="point" cx="1003.79" cy="350.00" r="4"><title>2026-09-15: 0 contributions</title></circle>
+<circle class="point" cx="1040.34" cy="101.21" r="4"><title>2026-09-16: 129 contributions</title></circle>
+<circle class="point" cx="1076.90" cy="261.29" r="4"><title>2026-09-17: 46 contributions</title></circle>
+<circle class="point" cx="1113.45" cy="263.21" r="4"><title>2026-09-18: 45 contributions</title></circle>
+<circle class="point" cx="1150.00" cy="226.57" r="4"><title>2026-09-19: 64 contributions</title></circle>
+</svg>
