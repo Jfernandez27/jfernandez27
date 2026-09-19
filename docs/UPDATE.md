@@ -17,6 +17,7 @@ Un único workflow, `.github/workflows/update-profile.yml`, se ejecuta **diariam
 -   **Languages**: Top 3 lenguajes por tamaño de código (Linguist), excluyendo marcado y estilos (CSS, HTML, Blade, etc.)
 -   **Frameworks**: Top 3 frameworks según los topics configurados en tus repos (solo frameworks, no lenguajes)
 -   **Current Streak / Longest Streak**: Días consecutivos con contribuciones, calculados sobre todo el historial
+-   **Profile updated**: Fecha (UTC) de la última corrida del workflow
 -   **Last push (uno por proyecto destacado)**: `activity-<slug>.svg`, con el tiempo desde el último push y color verde/amarillo/gris según la antigüedad. Los proyectos se configuran en `PROJECT_REPOS` dentro de `scripts/build_badges.py`
 
 ### Gráfico de actividad (`scripts/activity_graph.py`)
@@ -55,7 +56,7 @@ Los números pueden diferir de los del workflow si tu token local ve un conjunto
 
 ## ✏️ Actualizaciones Manuales
 
-Para actualizar la información personal, edita directamente `README.md`:
+Para actualizar la información personal, edita `README.md` **y** `README.es.md`. Los bloques HTML (badges, estadísticas, contacto) son idénticos en ambos; solo cambia la prosa. Si editas uno, replica el cambio en el otro.
 
 1. **Proyectos en desarrollo** (sección "🚀 What I'm Working On")
 
@@ -123,6 +124,14 @@ Ver `docs/CONFIG.md` para el detalle de tokens, permisos y estructura. Resumen:
 1. **`PAT_TOKEN`** configurado en los secretos del repositorio (ver scopes en CONFIG.md)
 2. Nada más: `gh` y Python vienen preinstalados en los runners de Ubuntu
 
+### Usuario de GitHub
+
+El workflow toma el usuario de la variable de Actions `GH_USER` y, si no existe, del dueño del repositorio (`github.repository_owner`). Para un perfil personal no hay que configurar nada. Para reutilizar estos scripts en otra cuenta, basta con hacer fork y, si el owner no coincide con el usuario a medir, definir la variable en Settings → Secrets and variables → Actions → Variables.
+
+### Comprobaciones automáticas (`ci.yml`)
+
+En cada push a `main` o PR que toque `scripts/` o los workflows, un segundo workflow compila los scripts, valida los YAML con actionlint y hace una corrida en seco de los generadores sin publicar nada. Si falla, el error se ve en el commit y no en la corrida nocturna.
+
 ### Modificar el horario de ejecución:
 
 En `.github/workflows/update-profile.yml`, ajusta el cron:
@@ -168,6 +177,7 @@ El servidor raw de GitHub cachea 5 minutos y el navegador guarda su copia. Recar
 -   **2026-09**: El gráfico de actividad se genera con `scripts/activity_graph.py` (el servicio externo de Vercel dejó de funcionar)
 -   **2026-09**: Un solo workflow, assets publicados en la rama `output`, badges generados con `scripts/build_badges.py` (totales de todos los años), Dependabot para Actions
 -   **2026-09**: Badges de rachas y de actividad por proyecto; Languages sin CSS/HTML; topics añadidos a 16 repos; README con ollama-dev-env, idiomas, sección Currently Learning; se quitan Discord y Stack Overflow del contacto
+-   **2026-09**: README en español, workflow de CI, licencia MIT, badge de fecha de actualización, usuario parametrizado, descripción y topics del repo
 
 ---
 

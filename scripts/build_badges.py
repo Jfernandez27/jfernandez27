@@ -243,6 +243,7 @@ def main() -> int:
         ("frameworks.svg", "Frameworks", metrics["frameworks"], "8B5CF6"),
         ("current-streak.svg", "Current Streak", days(metrics["current_streak"]), "F97316"),
         ("longest-streak.svg", "Longest Streak", days(metrics["longest_streak"]), "EF4444"),
+        ("updated.svg", "Profile updated", datetime.now(timezone.utc).strftime("%Y-%m-%d"), "6B7280"),
     ]
     for slug, (age, color) in metrics["projects"].items():
         badges.append((f"activity-{slug}.svg", "Last push", age, color))

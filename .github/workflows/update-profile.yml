@@ -39,7 +39,7 @@ jobs:
       - name: Generar badges y gráfico de actividad
         env:
           GH_TOKEN: ${{ secrets.PAT_TOKEN }}
-          GH_USER: Jfernandez27
+          GH_USER: ${{ vars.GH_USER || github.repository_owner }}
         run: |
           set -euo pipefail
           mkdir -p dist

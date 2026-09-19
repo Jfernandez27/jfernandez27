@@ -1,0 +1,57 @@
+name: CI
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/**'
+  pull_request:
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v7
+
+      - name: Compilar scripts
+        run: python3 -m py_compile scripts/*.py
+
+      - name: Validar workflows con actionlint
+        run: |
+          set -euo pipefail
+          bash <(curl -fsSL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest /tmp >/dev/null
+          /tmp/actionlint -color
+
+      - name: Corrida en seco de los generadores
+        # En PRs desde forks no hay secretos; el paso se salta en vez de fallar.
+        if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_USER: ${{ vars.GH_USER || github.repository_owner }}
+        run: |
+          set -euo pipefail
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::warning::PAT_TOKEN no disponible; se omite la corrida en seco."
+            exit 0
+          fi
+          mkdir -p /tmp/dry-run
+          python3 scripts/build_badges.py --user "$GH_USER" --output-dir /tmp/dry-run/badges
+          python3 scripts/activity_graph.py --user "$GH_USER" --days 30 --output /tmp/dry-run/README-activity.svg
+          python3 - <<'PY'
+          import pathlib, xml.dom.minidom
+          files = list(pathlib.Path("/tmp/dry-run").rglob("*.svg"))
+          assert len(files) >= 15, f"se esperaban al menos 15 SVG, hay {len(files)}"
+          for f in files:
+              xml.dom.minidom.parse(str(f))
+          print(f"{len(files)} SVG válidos")
+          PY

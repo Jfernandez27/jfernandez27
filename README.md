@@ -1,5 +1,7 @@
 # 👋 Jesus Fernández Machín
 
+<sub>🇪🇸 Versión en español: [README.es.md](./README.es.md)</sub>
+
 I'm a software developer from Venezuela, currently based in Santiago, Chile. I specialize in creating solutions that simplify complex workflows and drive innovation. My experience covers SaaS platforms for education, enterprise, e-commerce, internal tools, API integrations, and custom web applications.
 
 I'm committed to continuous learning and thrive in collaborative team environments, always striving to deliver value through both software development and process improvement.
@@ -87,10 +89,12 @@ Here are some of the main projects I’m currently involved in:
   <img src="https://raw.githubusercontent.com/Jfernandez27/jfernandez27/output/badges/issue-contrib.svg" alt="Issue Contributions" title="Issue Contributions" />
   <img src="https://raw.githubusercontent.com/Jfernandez27/jfernandez27/output/badges/followers.svg" alt="Followers" title="Followers" />
   <img src="https://raw.githubusercontent.com/Jfernandez27/jfernandez27/output/badges/starred.svg" alt="Starred Repositories" title="Starred Repositories" />
+  <br />
   <img src="https://raw.githubusercontent.com/Jfernandez27/jfernandez27/output/badges/languages.svg" alt="Languages" title="Languages" />
   <img src="https://raw.githubusercontent.com/Jfernandez27/jfernandez27/output/badges/frameworks.svg" alt="Frameworks" title="Frameworks (from GitHub repo topics)" />
   <img src="https://raw.githubusercontent.com/Jfernandez27/jfernandez27/output/badges/current-streak.svg" alt="Current Streak" title="Current Streak" />
   <img src="https://raw.githubusercontent.com/Jfernandez27/jfernandez27/output/badges/longest-streak.svg" alt="Longest Streak" title="Longest Streak" />
+  <img src="https://raw.githubusercontent.com/Jfernandez27/jfernandez27/output/badges/updated.svg" alt="Profile updated" title="Date of the last automatic update" />
 </div>
 
 ---

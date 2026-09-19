@@ -7,9 +7,11 @@ Esta documentación detalla la configuración técnica completa para el mantenim
 ```
 main (fuentes)                          output (generado, 1 commit, se reescribe a diario)
 ├── README.md ──referencia raw URLs──▶  ├── badges/*.svg
-├── scripts/build_badges.py             ├── README-activity.svg
-├── scripts/activity_graph.py           └── README.md (aviso)
-└── .github/workflows/update-profile.yml
+├── README.es.md                        ├── README-activity.svg
+├── scripts/build_badges.py             └── README.md (aviso)
+├── scripts/activity_graph.py
+├── .github/workflows/update-profile.yml
+└── .github/workflows/ci.yml (comprobaciones, no publica)
 ```
 
 Un solo workflow (`update-profile.yml`) corre a diario, genera los SVG con los dos scripts y los publica con un `push --force` a la rama huérfana `output`. `main` nunca recibe commits automáticos.
@@ -143,6 +145,7 @@ Los guiones y guiones bajos del texto se escapan (`--`, `__`) porque son separad
 # Frameworks: Violeta           8B5CF6
 # Current Streak: Naranja       F97316
 # Longest Streak: Rojo          EF4444
+# Profile updated: Gris         6B7280
 # Last push: verde/amarillo/gris según antigüedad
 ```
 
@@ -184,6 +187,16 @@ Los colores, tamaño y fuente están definidos como constantes al inicio de `scr
 
 `concurrency` evita que una ejecución manual y la programada se pisen.
 
+El usuario a medir sale de `vars.GH_USER` o, en su defecto, de `github.repository_owner`.
+
+## ✅ Workflow de CI (`ci.yml`)
+
+Se dispara en push a `main` y en PRs que cambien `scripts/` o `.github/workflows/`. Pasos:
+
+1. `python3 -m py_compile scripts/*.py`
+2. [actionlint](https://github.com/rhysd/actionlint) sobre todos los workflows
+3. Corrida en seco de ambos generadores a un directorio temporal y validación XML de cada SVG. Usa `PAT_TOKEN`; en PRs desde forks (sin secretos) el paso se omite con un aviso
+
 ### Rama `output`
 
 -   Es huérfana: no comparte historia con `main`
@@ -198,14 +211,17 @@ Los colores, tamaño y fuente están definidos como constantes al inicio de `scr
 
 ```
 .
-├── README.md                       # README principal (rama main)
+├── README.md                       # README principal, en inglés (rama main)
+├── README.es.md                    # Versión en español (misma estructura)
+├── LICENSE                         # MIT
 ├── scripts/
 │   ├── build_badges.py             # Genera badges/*.svg
 │   └── activity_graph.py           # Genera README-activity.svg
 ├── .github/
 │   ├── dependabot.yml              # Bumps automáticos de Actions
 │   └── workflows/
-│       └── update-profile.yml      # Workflow único
+│       ├── update-profile.yml      # Generación y publicación diaria
+│       └── ci.yml                  # Comprobaciones en push/PR
 └── docs/
     ├── UPDATE.md                   # Guía de actualización
     └── CONFIG.md                   # Este archivo
