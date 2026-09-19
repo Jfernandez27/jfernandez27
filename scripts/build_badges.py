@@ -2,8 +2,9 @@
 """Build the profile statistics badges (badges/*.svg) with Shields.io.
 
 Metrics come from the GitHub GraphQL API through the `gh` CLI, which must be
-authenticated. Commit, PR and issue contributions are summed across every year
-of the account, not just the last 12 months. No third-party dependencies.
+authenticated. Commit, PR and issue contributions and streaks are computed
+across every year of the account, not just the last 12 months. No third-party
+dependencies.
 
 Usage:
     python3 scripts/build_badges.py --user Jfernandez27 --output-dir badges
@@ -16,6 +17,7 @@ import sys
 import urllib.parse
 import urllib.request
 from collections import Counter
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 LABEL_COLOR = "101010"
@@ -27,6 +29,21 @@ FRAMEWORK_TOPICS = [
     "laravel", "laravel-framework", "livewire", "filament",
     "react", "reactjs", "nextjs", "vue", "vuejs", "nuxt",
     "express", "nestjs", "django", "fastapi", "flask", "tailwindcss",
+]
+
+# Linguist "languages" that are markup, styling or config rather than code.
+NON_CODE_LANGUAGES = {
+    "CSS", "SCSS", "Sass", "Less", "HTML", "Blade", "EJS", "MDX", "Markdown",
+    "Dockerfile", "Makefile", "Procfile", "Nix", "Vim Script", "Batchfile",
+}
+
+# Featured projects: (badge slug, repository name). One "last activity" badge
+# is produced per entry, named activity-<slug>.svg.
+PROJECT_REPOS = [
+    ("edupro360", "EduPro360"),
+    ("apexfit", "apexfit"),
+    ("tepuy", "tepuy"),
+    ("ollama-dev-env", "ollama-dev-env"),
 ]
 
 PROFILE_QUERY = """
@@ -55,8 +72,17 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
       totalCommitContributions
       totalPullRequestContributions
       totalIssueContributions
+      contributionCalendar {
+        weeks { contributionDays { date contributionCount } }
+      }
     }
   }
+}
+"""
+
+REPO_QUERY = """
+query($owner: String!, $name: String!) {
+  repository(owner: $owner, name: $name) { pushedAt }
 }
 """
 
@@ -72,14 +98,59 @@ def graphql(query: str, **variables) -> dict:
     return payload["data"]
 
 
+def streaks(daily: dict[date, int], today: date) -> tuple[int, int]:
+    """Return (current streak, longest streak) in days with >0 contributions."""
+    longest = run = 0
+    for day in sorted(daily):
+        run = run + 1 if daily[day] > 0 else 0
+        longest = max(longest, run)
+
+    # The current streak may still be alive if today has no contribution yet.
+    cursor = today if daily.get(today, 0) > 0 else today - timedelta(days=1)
+    current = 0
+    while daily.get(cursor, 0) > 0:
+        current += 1
+        cursor -= timedelta(days=1)
+    return current, longest
+
+
+def humanize_age(pushed_at: str, now: datetime) -> str:
+    delta = now - datetime.fromisoformat(pushed_at.replace("Z", "+00:00"))
+    days = delta.days
+    if days <= 0:
+        return "today"
+    if days == 1:
+        return "yesterday"
+    if days < 30:
+        return f"{days} days ago"
+    if days < 365:
+        months = days // 30
+        return f"{months} month{'s' if months > 1 else ''} ago"
+    years = days // 365
+    return f"{years} year{'s' if years > 1 else ''} ago"
+
+
+def activity_color(pushed_at: str, now: datetime) -> str:
+    days = (now - datetime.fromisoformat(pushed_at.replace("Z", "+00:00"))).days
+    if days < 30:
+        return "22C55E"  # green: active
+    if days < 180:
+        return "FACC15"  # yellow: slowing down
+    return "9CA3AF"  # grey: dormant
+
+
 def collect_metrics(user: str) -> dict:
+    now = datetime.now(timezone.utc)
+    today = now.date()
     profile = graphql(PROFILE_QUERY, login=user)["user"]
     repos = profile["repositories"]["nodes"]
 
     language_sizes = Counter()
     for repo in repos:
         for edge in repo["languages"]["edges"]:
-            language_sizes[edge["node"]["name"]] += edge["size"]
+            name = edge["node"]["name"]
+            if name not in NON_CODE_LANGUAGES:
+                language_sizes[name] += edge["size"]
     top_languages = [name for name, _ in language_sizes.most_common(3)]
 
     topic_counts = Counter()
@@ -91,6 +162,7 @@ def collect_metrics(user: str) -> dict:
     top_frameworks = [name for name, _ in topic_counts.most_common(3)]
 
     commits = prs = issues = 0
+    daily: dict[date, int] = {}
     for year in profile["contributionsCollection"]["contributionYears"]:
         yearly = graphql(
             YEAR_QUERY, login=user,
@@ -99,6 +171,17 @@ def collect_metrics(user: str) -> dict:
         commits += yearly["totalCommitContributions"]
         prs += yearly["totalPullRequestContributions"]
         issues += yearly["totalIssueContributions"]
+        for week in yearly["contributionCalendar"]["weeks"]:
+            for day in week["contributionDays"]:
+                d = date.fromisoformat(day["date"])
+                if d <= today:
+                    daily[d] = day["contributionCount"]
+    current_streak, longest_streak = streaks(daily, today)
+
+    projects = {}
+    for slug, repo_name in PROJECT_REPOS:
+        pushed_at = graphql(REPO_QUERY, owner=user, name=repo_name)["repository"]["pushedAt"]
+        projects[slug] = (humanize_age(pushed_at, now), activity_color(pushed_at, now))
 
     return {
         "repositories": profile["repositories"]["totalCount"],
@@ -109,6 +192,9 @@ def collect_metrics(user: str) -> dict:
         "starred": profile["starredRepositories"]["totalCount"],
         "languages": " | ".join(top_languages) or "n/a",
         "frameworks": " | ".join(top_frameworks) or "Add topics on GitHub",
+        "current_streak": current_streak,
+        "longest_streak": longest_streak,
+        "projects": projects,
     }
 
 
@@ -143,6 +229,9 @@ def main() -> int:
         print(f"gh api failed: {exc.stderr.strip()}", file=sys.stderr)
         return 1
 
+    def days(n: int) -> str:
+        return f"{n} day{'s' if n != 1 else ''}"
+
     badges = [
         ("public-repos.svg", "Repositories", str(metrics["repositories"]), "0EA5E9"),
         ("total-commits.svg", "Total Commits", str(metrics["commits"]), "10B981"),
@@ -152,7 +241,11 @@ def main() -> int:
         ("starred.svg", "Starred Repositories", str(metrics["starred"]), "F97316"),
         ("languages.svg", "Languages", metrics["languages"], "D946EF"),
         ("frameworks.svg", "Frameworks", metrics["frameworks"], "8B5CF6"),
+        ("current-streak.svg", "Current Streak", days(metrics["current_streak"]), "F97316"),
+        ("longest-streak.svg", "Longest Streak", days(metrics["longest_streak"]), "EF4444"),
     ]
+    for slug, (age, color) in metrics["projects"].items():
+        badges.append((f"activity-{slug}.svg", "Last push", age, color))
 
     out = Path(args.output_dir)
     out.mkdir(parents=True, exist_ok=True)

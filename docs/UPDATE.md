@@ -14,8 +14,10 @@ Un único workflow, `.github/workflows/update-profile.yml`, se ejecuta **diariam
 -   **Issue Contributions**: Issues sumados en todos los años
 -   **Followers**: Número de seguidores
 -   **Starred Repositories**: Repositorios marcados con estrella
--   **Languages**: Top 3 lenguajes por tamaño de código (Linguist)
+-   **Languages**: Top 3 lenguajes por tamaño de código (Linguist), excluyendo marcado y estilos (CSS, HTML, Blade, etc.)
 -   **Frameworks**: Top 3 frameworks según los topics configurados en tus repos (solo frameworks, no lenguajes)
+-   **Current Streak / Longest Streak**: Días consecutivos con contribuciones, calculados sobre todo el historial
+-   **Last push (uno por proyecto destacado)**: `activity-<slug>.svg`, con el tiempo desde el último push y color verde/amarillo/gris según la antigüedad. Los proyectos se configuran en `PROJECT_REPOS` dentro de `scripts/build_badges.py`
 
 ### Gráfico de actividad (`scripts/activity_graph.py`)
 
@@ -57,31 +59,22 @@ Para actualizar la información personal, edita directamente `README.md`:
 
 1. **Proyectos en desarrollo** (sección "🚀 What I'm Working On")
 
-    - Agregar/quitar proyectos
-    - Actualizar URLs y estados
+    - Agregar/quitar proyectos y actualizar URLs y estados
+    - La columna **Activity** se genera sola. Para añadir un proyecto nuevo con badge, agrega `("slug", "nombre-del-repo")` a `PROJECT_REPOS` en `scripts/build_badges.py` y referencia `badges/activity-slug.svg` en la tabla
 
 2. **Stack tecnológico** (sección "🛠️ Tech Stack")
 
-    - Agregar nuevas tecnologías
-    - Actualizar versiones
+    - Agregar o quitar tecnologías
 
-3. **Certificaciones** (sección "🎓 Certifications")
+3. **Aprendizaje actual** (sección "📚 Currently Learning")
 
-    - Marcar como completadas
-    - Agregar nuevas certificaciones
+    - Reemplaza a Certifications y Goals. Cuando obtengas una certificación, enlázala aquí con su credencial
 
-4. **Objetivos** (sección "🎯 Goals")
-
-    - Actualizar metas actuales
+4. **Contacto**: solo web, email, LinkedIn y Dev.to. Se quitaron WhatsApp, Discord y Stack Overflow a propósito (spam y poco valor)
 
 5. **Badges de tecnologías** (sección "💻 I Code With")
 
-    - Agregar nuevas tecnologías
-    - Actualizar versiones
-
-6. **Información de contacto** (sección "📫 How to Reach Me")
-    - Actualizar enlaces
-    - Agregar nuevas redes sociales
+    - Agregar nuevas tecnologías (sin número de versión)
 
 ### Estructura de los Badges de Tecnología
 
@@ -89,14 +82,14 @@ Los badges siguen este formato:
 
 ```markdown
 <a href="URL_DE_LA_TECNOLOGIA" target="_blank" rel="noopener noreferrer">
-  <img src="https://img.shields.io/badge/NOMBRE-VERSION-COLOR?logo=LOGO&logoColor=white&labelColor=101010" alt="NOMBRE" />
+  <img src="https://img.shields.io/badge/NOMBRE-COLOR?logo=LOGO&logoColor=white&labelColor=101010" alt="NOMBRE" />
 </a>
 ```
 
 **Parámetros importantes**:
 
 -   `NOMBRE`: Nombre de la tecnología
--   `VERSION`: Versión utilizada
+-   Sin número de versión: los badges usan la forma `badge/NOMBRE-COLOR` para que no caduquen
 -   `COLOR`: Color hexadecimal del badge
 -   `LOGO`: Nombre del logo en shields.io
 -   `labelColor=101010`: Color de fondo uniforme
@@ -174,6 +167,7 @@ El servidor raw de GitHub cachea 5 minutos y el navegador guarda su copia. Recar
 -   **2026-09**: Badge de Frameworks basado en topics; actualización de versiones de Actions y corrección de docs
 -   **2026-09**: El gráfico de actividad se genera con `scripts/activity_graph.py` (el servicio externo de Vercel dejó de funcionar)
 -   **2026-09**: Un solo workflow, assets publicados en la rama `output`, badges generados con `scripts/build_badges.py` (totales de todos los años), Dependabot para Actions
+-   **2026-09**: Badges de rachas y de actividad por proyecto; Languages sin CSS/HTML; topics añadidos a 16 repos; README con ollama-dev-env, idiomas, sección Currently Learning y contacto reducido
 
 ---
 

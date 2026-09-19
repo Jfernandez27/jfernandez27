@@ -87,6 +87,20 @@ query ($login: String!, $from: DateTime!, $to: DateTime!) {
 }
 ```
 
+### Último push por proyecto (`build_badges.py`):
+
+```graphql
+query ($owner: String!, $name: String!) {
+    repository(owner: $owner, name: $name) { pushedAt }
+}
+```
+
+Una consulta por entrada de `PROJECT_REPOS`. Colores del badge: verde (< 30 días), amarillo (< 180 días), gris (más antiguo).
+
+### Rachas (`build_badges.py`):
+
+Se reutiliza la consulta por año anterior añadiendo `contributionCalendar`. Con todos los días del historial se calcula la racha más larga y la actual. Si hoy aún no hay contribuciones, la racha actual se cuenta hasta ayer.
+
 ### Calendario de contribuciones (`activity_graph.py`):
 
 ```graphql
@@ -104,7 +118,7 @@ query ($login: String!, $from: DateTime!, $to: DateTime!) {
 
 ### Límites de la API:
 
--   **GraphQL API**: 5.000 puntos/hora. Una corrida completa consume del orden de 15 puntos
+-   **GraphQL API**: 5.000 puntos/hora. Una corrida completa consume del orden de 20 puntos
 
 ## 🎨 Generación de Badges
 
@@ -127,7 +141,14 @@ Los guiones y guiones bajos del texto se escapan (`--`, `__`) porque son separad
 # Starred: Naranja              F97316
 # Languages: Magenta            D946EF
 # Frameworks: Violeta           8B5CF6
+# Current Streak: Naranja       F97316
+# Longest Streak: Rojo          EF4444
+# Last push: verde/amarillo/gris según antigüedad
 ```
+
+### Badge de Languages
+
+Excluye los "lenguajes" de marcado, estilos y configuración que Linguist reporta (`CSS`, `SCSS`, `HTML`, `Blade`, `Dockerfile`, etc.; lista `NON_CODE_LANGUAGES` en el script) para que el top 3 refleje código real.
 
 ### Badge de Frameworks (basado en GitHub Topics)
 
