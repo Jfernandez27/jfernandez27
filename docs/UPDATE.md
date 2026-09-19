@@ -4,62 +4,56 @@ Esta documentación explica cómo actualizar y mantener el README.md del perfil 
 
 ## 🔄 Actualizaciones Automáticas
 
-El README incluye elementos que se actualizan automáticamente mediante GitHub Actions:
+Un único workflow, `.github/workflows/update-profile.yml`, se ejecuta **diariamente a las 04:00 UTC** y regenera todos los elementos dinámicos del README:
 
-### 1. Badges de Estadísticas GitHub (`.github/workflows/user-global-badges.yml`)
+### Badges de estadísticas (`scripts/build_badges.py`)
 
-Se ejecuta **diariamente a las 4:00 AM** y actualiza los siguientes badges usando Shields.io y curl:
-
--   **Repositorios**: Número total de repositorios públicos
--   **Commits Totales**: Total de commits realizados
--   **PR Contributions**: Contribuciones de Pull Requests
--   **Issue Contributions**: Contribuciones de Issues
+-   **Repositories**: Número total de repositorios propios (sin forks)
+-   **Total Commits**: Commits sumados en todos los años de la cuenta
+-   **PR Contributions**: Pull requests sumados en todos los años
+-   **Issue Contributions**: Issues sumados en todos los años
 -   **Followers**: Número de seguidores
--   **Starred Repos**: Repositorios marcados con estrella
--   **Languages**: Tecnologías principales
--   **Frameworks**: Top 3 frameworks según los topics configurados en tus repos de GitHub (solo frameworks, no lenguajes)
+-   **Starred Repositories**: Repositorios marcados con estrella
+-   **Languages**: Top 3 lenguajes por tamaño de código (Linguist)
+-   **Frameworks**: Top 3 frameworks según los topics configurados en tus repos (solo frameworks, no lenguajes)
 
-**Archivos generados**: `badges/*.svg`
+### Gráfico de actividad (`scripts/activity_graph.py`)
 
-### 2. Gráfico de Actividad (`.github/workflows/activity-graph.yml`)
+-   **README-activity.svg**: Contribuciones por día de los últimos 30 días
 
-Se ejecuta **diariamente a las 4:30 AM UTC** y actualiza:
+### Dónde se guardan
 
--   **README-activity.svg**: Gráfico de actividad de los últimos 30 días
+Los archivos generados **no se commitean en `main`**. El workflow los publica en la rama huérfana `output`, que se reescribe entera cada día con un solo commit. El README los referencia por su URL raw:
 
-El SVG lo genera el script `scripts/activity_graph.py` a partir del calendario de contribuciones de la API GraphQL de GitHub. No depende de ningún servicio externo. Para regenerarlo en local:
-
-```bash
-python3 scripts/activity_graph.py --user Jfernandez27 --days 30 --output README-activity.svg
 ```
+https://raw.githubusercontent.com/Jfernandez27/jfernandez27/output/badges/<badge>.svg
+https://raw.githubusercontent.com/Jfernandez27/jfernandez27/output/README-activity.svg
+```
+
+Así `main` solo contiene cambios hechos a mano y el historial se mantiene limpio.
 
 ## ⚙️ Ejecución Manual
 
-### Forzar actualización de badges:
-
 ```bash
-gh workflow run "Build global user badges"
+gh workflow run "Update profile assets"
 ```
 
-### Forzar actualización del gráfico de actividad:
+O desde la interfaz web: **Actions → Update profile assets → Run workflow**.
+
+### Regenerar en local
+
+Requiere `gh` autenticado (`gh auth login`) y Python 3.9+. No hay dependencias que instalar.
 
 ```bash
-gh workflow run "Update Activity Graph"
+python3 scripts/build_badges.py --user Jfernandez27 --output-dir badges
+python3 scripts/activity_graph.py --user Jfernandez27 --days 30 --output README-activity.svg
 ```
 
-O desde la interfaz web de GitHub:
-
-1. Ve a **Actions** en el repositorio
-2. Selecciona el workflow deseado
-3. Haz clic en **"Run workflow"**
+Los números pueden diferir de los del workflow si tu token local ve un conjunto distinto de repos privados que `PAT_TOKEN`.
 
 ## ✏️ Actualizaciones Manuales
 
-### Información Personal
-
 Para actualizar la información personal, edita directamente `README.md`:
-
-#### Secciones que requieren actualización manual:
 
 1. **Proyectos en desarrollo** (sección "🚀 What I'm Working On")
 
@@ -94,7 +88,7 @@ Para actualizar la información personal, edita directamente `README.md`:
 Los badges siguen este formato:
 
 ```markdown
-<a href="URL_DE_LA_TECNOLOGIA">
+<a href="URL_DE_LA_TECNOLOGIA" target="_blank" rel="noopener noreferrer">
   <img src="https://img.shields.io/badge/NOMBRE-VERSION-COLOR?logo=LOGO&logoColor=white&labelColor=101010" alt="NOMBRE" />
 </a>
 ```
@@ -106,6 +100,8 @@ Los badges siguen este formato:
 -   `COLOR`: Color hexadecimal del badge
 -   `LOGO`: Nombre del logo en shields.io
 -   `labelColor=101010`: Color de fondo uniforme
+
+> GitHub elimina los atributos `style` de las etiquetas `img` y `a` al renderizar el README, así que no sirve de nada añadirlos.
 
 ## 🎨 Personalización de Badges
 
@@ -127,67 +123,57 @@ Los badges siguen este formato:
 -   [Simple Icons](https://simpleicons.org/) - Iconos disponibles
 -   [Color Picker](https://htmlcolorcodes.com/) - Selección de colores
 
-## 🔧 Configuración de Workflows
+## 🔧 Configuración del Workflow
 
-### Requisitos:
+Ver `docs/CONFIG.md` para el detalle de tokens, permisos y estructura. Resumen:
 
-1. **Personal Access Token (PAT)**:
+1. **`PAT_TOKEN`** configurado en los secretos del repositorio (ver scopes en CONFIG.md)
+2. Nada más: `gh` y Python vienen preinstalados en los runners de Ubuntu
 
-    - Configurado como `PAT_TOKEN` en los secretos del repositorio
-    - Permisos: `repo`, `read:user`, `read:org`
+### Modificar el horario de ejecución:
 
-2. **Dependencias**:
-    - GitHub CLI (`gh`)
-    - curl
-
-### Modificar horarios de ejecución:
-
-En los archivos `.github/workflows/*.yml`, ajusta el cron:
+En `.github/workflows/update-profile.yml`, ajusta el cron:
 
 ```yaml
 schedule:
-    - cron: '0 4 * * *' # Diario a las 4:00 AM UTC
+    - cron: '0 4 * * *' # Diario a las 04:00 UTC
 ```
 
 **Formato cron**: `minuto hora día mes día_semana`
 
 ## 🐛 Solución de Problemas
 
-### Los badges no se actualizan:
+### Los badges o el gráfico no se actualizan:
 
-1. Verificar que el token PAT tenga permisos correctos
-2. Revisar los logs en la pestaña **Actions**
-3. Confirmar que la carpeta `badges/` existe
-4. Verificar que la URL de Shields.io sea válida y que curl esté instalado
+1. Ve a **Actions** y comprueba que el workflow "Update profile assets" esté habilitado y que la última corrida terminó en verde
+2. Si el primer paso falla, `PAT_TOKEN` no existe o expiró: genera uno nuevo y actualiza el secreto
+3. Si el workflow aparece deshabilitado por inactividad, reactívalo con `gh workflow enable "Update profile assets"`. El propio workflow se re-habilita en cada corrida como keepalive, así que esto solo debería pasar si llevaba mucho tiempo fallando
+4. Ejecuta los scripts en local (ver arriba) para reproducir un error de generación
 
-### El gráfico de actividad no aparece o no se actualiza:
+### Veo una versión vieja de una imagen:
 
-1. Verificar en **Actions** que el workflow "Update Activity Graph" esté habilitado. GitHub deshabilita los workflows programados tras 60 días sin actividad; se reactiva con `gh workflow enable "Update Activity Graph"`
-2. Revisar los logs del último run: el script falla si `PAT_TOKEN` no es válido o la consulta GraphQL devuelve error
-3. Ejecutar el script en local (ver arriba) para reproducir el problema
+El servidor raw de GitHub cachea 5 minutos y el navegador guarda su copia. Recarga con `Ctrl+Shift+R` o abre la URL en incógnito.
 
 ### Error en GraphQL API:
 
-1. Verificar límites de rate de la API de GitHub
-2. Confirmar sintaxis de las consultas GraphQL
-3. Revisar permisos del token PAT
+1. Verificar límites de rate de la API de GitHub (5.000 puntos/hora)
+2. Confirmar sintaxis de las consultas en `scripts/*.py`
+3. Revisar scopes del `PAT_TOKEN`
 
 ## 📚 Recursos Adicionales
 
 -   [GitHub GraphQL API](https://docs.github.com/en/graphql)
 -   [GitHub Actions Docs](https://docs.github.com/en/actions)
 -   [Shields.io](https://shields.io/)
--   [GitHub Readme Activity Graph](https://github.com/Ashutosh00710/github-readme-activity-graph)
 
 ## 🔄 Changelog
-
-### Últimas actualizaciones:
 
 -   **2025-01**: Implementación de badges automáticos
 -   **2025-01**: Integración de gráfico de actividad
 -   **2025-01**: Documentación de actualización
 -   **2026-09**: Badge de Frameworks basado en topics; actualización de versiones de Actions y corrección de docs
 -   **2026-09**: El gráfico de actividad se genera con `scripts/activity_graph.py` (el servicio externo de Vercel dejó de funcionar)
+-   **2026-09**: Un solo workflow, assets publicados en la rama `output`, badges generados con `scripts/build_badges.py` (totales de todos los años), Dependabot para Actions
 
 ---
 

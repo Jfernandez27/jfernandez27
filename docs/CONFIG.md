@@ -2,86 +2,101 @@
 
 Esta documentación detalla la configuración técnica completa para el mantenimiento automatizado del README.
 
+## 🧭 Arquitectura
+
+```
+main (fuentes)                          output (generado, 1 commit, se reescribe a diario)
+├── README.md ──referencia raw URLs──▶  ├── badges/*.svg
+├── scripts/build_badges.py             ├── README-activity.svg
+├── scripts/activity_graph.py           └── README.md (aviso)
+└── .github/workflows/update-profile.yml
+```
+
+Un solo workflow (`update-profile.yml`) corre a diario, genera los SVG con los dos scripts y los publica con un `push --force` a la rama huérfana `output`. `main` nunca recibe commits automáticos.
+
 ## 🔐 Configuración de Tokens y Secretos
 
-### Personal Access Token (PAT)
+### `PAT_TOKEN` (Personal Access Token)
 
-1. **Crear el token**:
+Se usa solo para **leer** datos de la API GraphQL. Nunca escribe en el repositorio.
 
-    - Ve a GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
-    - Genera un nuevo token con los siguientes permisos:
-        - `repo` (acceso completo a repositorios)
-        - `read:user` (leer información del usuario)
-        - `read:org` (leer información de organizaciones)
+1. **Crear el token** en GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
+2. **Scopes mínimos**:
+    - `read:user` — contribuciones, followers y starred
+    - `repo` — **opcional**. Solo hace falta si quieres que los repos privados cuenten en Repositories, Languages, Frameworks y en los totales de commits/PRs/issues. Sin él, las cifras reflejan únicamente lo público
+    - `read:org` — opcional, para que cuenten contribuciones en repos privados de organizaciones
+3. **Configurar el secreto**: repositorio → Settings → Secrets and variables → Actions → `PAT_TOKEN`
+4. **Anotar la expiración**. GitHub no avisa cuando un token usado por Actions caduca; el workflow sí: su primer paso falla con un mensaje explícito. Anota aquí la fecha para rotarlo antes:
 
-2. **Configurar el secreto**:
-    - En el repositorio → Settings → Secrets and variables → Actions
-    - Crear nuevo secreto: `PAT_TOKEN`
-    - Pegar el token generado
+    | Token       | Creado | Expira |
+    | ----------- | ------ | ------ |
+    | `PAT_TOKEN` | _(completar)_ | _(completar)_ |
 
-### GitHub Token (automático)
+### `GITHUB_TOKEN` (automático)
 
-El `GITHUB_TOKEN` se genera automáticamente y tiene permisos limitados para:
+Lo genera cada corrida. El workflow declara estos permisos:
 
--   Hacer commits
--   Push de cambios
--   Leer repositorio
-
-## 📋 Dependencias del Sistema
-
-### En Ubuntu/GitHub Actions:
-
-```bash
-# GitHub CLI
-sudo apt-get update
-sudo apt-get install -y gh
+```yaml
+permissions:
+    contents: write # push a la rama output
+    actions: write  # keepalive (re-habilitar el propio workflow)
 ```
 
-### En desarrollo local:
+## 📋 Dependencias
 
-```bash
-# macOS
-brew install gh
+Ninguna que instalar. Los runners `ubuntu-latest` traen `gh`, `git`, `curl` y Python 3. Los scripts usan solo la librería estándar.
 
-# Ubuntu/Debian
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-sudo apt update
-sudo apt install gh
-```
+Para desarrollo local: `gh` autenticado (`gh auth login`) y Python 3.9+.
 
 ## 🔍 API de GitHub GraphQL
 
-### Consulta de métricas de usuario:
+### Consulta de perfil (`build_badges.py`):
 
 ```graphql
 query ($login: String!) {
     user(login: $login) {
-        repositories(ownerAffiliations: [OWNER], isFork: false) {
+        followers { totalCount }
+        starredRepositories { totalCount }
+        contributionsCollection { contributionYears }
+        repositories(ownerAffiliations: [OWNER], isFork: false, first: 100) {
             totalCount
-        }
-        contributionsCollection {
-            totalCommitContributions
-            totalPullRequestContributions
-            totalIssueContributions
-        }
-        followers {
-            totalCount
-        }
-        starredRepositories {
-            totalCount
+            nodes {
+                languages(first: 5, orderBy: { field: SIZE, direction: DESC }) {
+                    edges { size node { name } }
+                }
+                repositoryTopics(first: 10) { nodes { topic { name } } }
+            }
         }
     }
 }
 ```
 
-### Consulta de lenguajes por repositorio:
+### Totales por año (`build_badges.py`):
+
+`contributionsCollection` sin rango devuelve solo los últimos 12 meses. Para el total histórico el script itera `contributionYears` y suma una consulta por año:
 
 ```graphql
-query ($owner: String!, $name: String!) {
-    repository(owner: $owner, name: $name) {
-        languages {
-            totalCount
+query ($login: String!, $from: DateTime!, $to: DateTime!) {
+    user(login: $login) {
+        contributionsCollection(from: $from, to: $to) {
+            totalCommitContributions
+            totalPullRequestContributions
+            totalIssueContributions
+        }
+    }
+}
+```
+
+### Calendario de contribuciones (`activity_graph.py`):
+
+```graphql
+query ($login: String!, $from: DateTime!, $to: DateTime!) {
+    user(login: $login) {
+        contributionsCollection(from: $from, to: $to) {
+            contributionCalendar {
+                totalContributions
+                weeks { contributionDays { date contributionCount } }
+            }
         }
     }
 }
@@ -89,21 +104,17 @@ query ($owner: String!, $name: String!) {
 
 ### Límites de la API:
 
--   **REST API**: 5,000 requests/hora
--   **GraphQL API**: 5,000 points/hora
--   **Authenticated requests**: Límites más altos
+-   **GraphQL API**: 5.000 puntos/hora. Una corrida completa consume del orden de 15 puntos
 
 ## 🎨 Generación de Badges
 
-### Generación de Badges con Shields.io
+`scripts/build_badges.py` descarga cada badge de Shields.io:
 
-Los badges se generan usando la API de Shields.io y `curl`. Ejemplo:
-
-```bash
-curl -s -o badges/public-repos.svg "https://img.shields.io/badge/Repositories-123-0EA5E9?style=flat&labelColor=101010"
+```
+https://img.shields.io/badge/<label>-<message>-<color>?style=flat&labelColor=101010
 ```
 
-Puedes personalizar el texto, color y estilo directamente en la URL.
+Los guiones y guiones bajos del texto se escapan (`--`, `__`) porque son separadores en la sintaxis de Shields.
 
 ### Colores utilizados:
 
@@ -120,11 +131,11 @@ Puedes personalizar el texto, color y estilo directamente en la URL.
 
 ### Badge de Frameworks (basado en GitHub Topics)
 
-El badge de "Frameworks" no viene de un dato nativo de la API de GitHub (a diferencia de "Languages", que usa el detector de Linguist). Se calcula agregando los **repository topics** que hayas configurado manualmente en cada repo (Settings → General → Topics), filtrados contra una lista fija de topics de frameworks en el workflow (`laravel`, `livewire`, `react`, `nextjs`, `vue`, `django`, `fastapi`, `tailwindcss`, etc.). Los lenguajes (`php`, `python`, `typescript`) quedan fuera a propósito, porque ya los cubre el badge de Languages.
+El badge de "Frameworks" no viene de un dato nativo de la API de GitHub (a diferencia de "Languages", que usa el detector de Linguist). Se calcula agregando los **repository topics** que hayas configurado manualmente en cada repo (Settings → General → Topics), filtrados contra la lista `FRAMEWORK_TOPICS` de `scripts/build_badges.py` (`laravel`, `livewire`, `react`, `nextjs`, `vue`, `django`, `fastapi`, `tailwindcss`, etc.). Los lenguajes (`php`, `python`, `typescript`) quedan fuera a propósito, porque ya los cubre el badge de Languages.
 
-- Si un repo no tiene topics configurados, no aporta nada al cálculo.
-- Si ningún repo tiene topics relevantes, el badge muestra "Add topics on GitHub" como aviso.
-- Para que un repo cuente, agrégale topics en GitHub que coincidan con la lista `frameworks` definida en `.github/workflows/user-global-badges.yml`.
+-   Si un repo no tiene topics configurados, no aporta nada al cálculo.
+-   Si ningún repo tiene topics relevantes, el badge muestra "Add topics on GitHub" como aviso.
+-   Para que un repo cuente, agrégale topics en GitHub que coincidan con la lista.
 
 ## 📊 Gráfico de Actividad
 
@@ -134,73 +145,66 @@ Hasta diciembre de 2025 el gráfico se descargaba de `github-readme-activity-gra
 
 El script:
 
-1. Consulta `contributionsCollection.contributionCalendar` en la API GraphQL usando el `gh` CLI (autenticado con `PAT_TOKEN`)
+1. Consulta `contributionCalendar` en la API GraphQL usando el `gh` CLI
 2. Toma los últimos N días (30 por defecto) y rellena con 0 los días sin contribuciones
 3. Renderiza un gráfico de línea como SVG estático (1200×420) con estilo oscuro: fondo `0a0f0b`, línea `F97316`, puntos `abd200`
 
-Solo usa la librería estándar de Python y `gh`; no hay dependencias que instalar.
-
-### Uso:
-
-```bash
-python3 scripts/activity_graph.py --user Jfernandez27 --days 30 --output README-activity.svg
-```
-
 ### Personalización:
 
-Los colores, tamaño y fuente están definidos como constantes al inicio de `scripts/activity_graph.py`.
+Los colores, tamaño y fuente están definidos como constantes al inicio de `scripts/activity_graph.py`. El número de días se cambia con `--days` en el workflow.
 
-## 🔄 Flujo de Trabajo Automatizado
+## 🔄 Flujo de Trabajo Automatizado (`update-profile.yml`)
 
-### Workflow de Badges (`user-global-badges.yml`):
+1. **Checkout** de `main`
+2. **Verificar `PAT_TOKEN`**: falla rápido con un mensaje claro si falta o expiró
+3. **Generar** badges y gráfico en `dist/` con los dos scripts
+4. **Publicar**: `git init` en `dist/`, un commit, `push --force` a la rama `output`. La rama siempre tiene un único commit
+5. **Keepalive**: llama a la API `enable` del propio workflow, lo que reinicia el contador de 60 días de inactividad con el que GitHub deshabilita los crons
 
-1. **Checkout del repositorio**
-2. **Instalación de dependencias** (gh CLI)
-3. **Autenticación con PAT**
-4. **Consulta a GraphQL API** para obtener métricas
-5. **Generación de badges SVG**
-6. **Commit y push automático**
+`concurrency` evita que una ejecución manual y la programada se pisen.
 
-### Workflow de Activity Graph (`activity-graph.yml`):
+### Rama `output`
 
-1. **Checkout del repositorio**
-2. **Generación del SVG** con `scripts/activity_graph.py` (API GraphQL vía `gh`)
-3. **Commit y push automático**
+-   Es huérfana: no comparte historia con `main`
+-   Se reescribe entera cada día; no edites nada ahí a mano
+-   Si la borras, la siguiente corrida la vuelve a crear
+
+## 🤖 Dependabot
+
+`.github/dependabot.yml` revisa mensualmente las versiones de las GitHub Actions usadas y abre un PR cuando hay una nueva.
 
 ## 📝 Estructura de Archivos
 
 ```
 .
-├── README.md                 # README principal
-├── README-activity.svg       # Gráfico de actividad (auto-generado)
-├── badges/                   # Carpeta de badges (auto-generada)
-│   ├── public-repos.svg      # Badge de repositorios
-│   ├── total-commits.svg     # Badge de commits
-│   ├── pr-contrib.svg        # Badge de PRs
-│   ├── issue-contrib.svg     # Badge de issues
-│   ├── followers.svg         # Badge de followers
-│   ├── starred.svg           # Badge de starred repos
-│   ├── languages.svg         # Badge de lenguajes
-│   └── frameworks.svg        # Badge de frameworks (via GitHub Topics)
-├── .github/
-│   └── workflows/
-│       ├── user-global-badges.yml  # Workflow de badges
-│       └── activity-graph.yml      # Workflow de gráfico
+├── README.md                       # README principal (rama main)
 ├── scripts/
-│   └── activity_graph.py     # Generador del gráfico de actividad
-└── docs/                     # Documentación
-    ├── UPDATE.md              # Guía de actualización
-    └── CONFIG.md              # Este archivo
+│   ├── build_badges.py             # Genera badges/*.svg
+│   └── activity_graph.py           # Genera README-activity.svg
+├── .github/
+│   ├── dependabot.yml              # Bumps automáticos de Actions
+│   └── workflows/
+│       └── update-profile.yml      # Workflow único
+└── docs/
+    ├── UPDATE.md                   # Guía de actualización
+    └── CONFIG.md                   # Este archivo
+
+output (rama aparte, generada)
+├── README.md
+├── README-activity.svg
+└── badges/*.svg
 ```
 
 ## 🐛 Debug y Logs
 
 ### Ver logs de workflows:
 
-1. Ve a la pestaña **Actions** del repositorio
-2. Selecciona el workflow que falló
-3. Haz clic en el job específico
-4. Expande los steps para ver detalles
+```bash
+gh run list --workflow=update-profile.yml --limit 5
+gh run view <run-id> --log
+```
+
+O en la pestaña **Actions** del repositorio.
 
 ### Comandos útiles para debug local:
 
@@ -211,43 +215,28 @@ gh auth status
 # Probar consulta GraphQL
 gh api graphql -f query='query { viewer { login } }'
 
-# Generar badge de prueba con Shields.io
-curl -s -o test.svg "https://img.shields.io/badge/Test-42-00FF00?style=flat&labelColor=101010"
+# Generar todo en local
+python3 scripts/build_badges.py --user Jfernandez27 --output-dir /tmp/badges
+python3 scripts/activity_graph.py --user Jfernandez27 --days 30 --output /tmp/activity.svg
 
-# Generar el gráfico de actividad en local
-python3 scripts/activity_graph.py --user Jfernandez27 --days 30 --output test-activity.svg
+# Ver qué hay publicado en la rama output
+gh api "repos/Jfernandez27/jfernandez27/git/trees/output?recursive=1" --jq '.tree[].path'
 ```
 
 ### Errores comunes:
 
-1. **Token expirado**: Renovar PAT en GitHub Settings
-2. **Permisos insuficientes**: Verificar scopes del token
-3. **Rate limit**: Esperar reset o usar token con mayor límite
-4. **Workflow deshabilitado por inactividad**: Reactivar con `gh workflow enable <nombre>`
+1. **Token expirado o ausente**: el paso "Verificar PAT_TOKEN" lo indica. Renovar el PAT y actualizar el secreto
+2. **Workflow deshabilitado por inactividad**: `gh workflow enable "Update profile assets"`
+3. **Rate limit**: esperar el reset
+4. **Shields.io caído**: `build_badges.py` falla si la respuesta no es un SVG; la rama `output` conserva la versión anterior
 
 ## 🔒 Seguridad
 
-### Buenas prácticas:
-
--   ✅ Usar PAT con permisos mínimos necesarios
--   ✅ Rotar tokens periódicamente
--   ✅ No hardcodear tokens en código
--   ✅ Usar secretos de GitHub Actions
--   ✅ Verificar logs por información sensible
-
-### Permisos mínimos requeridos:
-
-```
-PAT_TOKEN:
-├── repo (full control)
-├── read:user (read user profile)
-└── read:org (read org membership)
-
-GITHUB_TOKEN (automático):
-├── contents: write (commit files)
-└── metadata: read (read repository)
-```
+-   ✅ `PAT_TOKEN` solo lee; el push lo hace `GITHUB_TOKEN` con permisos declarados explícitamente
+-   ✅ Usar los scopes mínimos (ver arriba) y rotar el token antes de que caduque
+-   ✅ Dependabot mantiene las Actions al día
+-   ✅ Los scripts no tienen dependencias de terceros
 
 ---
 
-**Nota**: Esta configuración está optimizada para el repositorio personal de **Jfernandez27**. Para otros usuarios, ajustar nombres de usuario y configuraciones específicas.
+**Nota**: Esta configuración está optimizada para el repositorio personal de **Jfernandez27**. Para otros usuarios, ajustar `GH_USER` en el workflow y las URLs raw del README.
