@@ -1,165 +1,127 @@
-
-    <svg
-        width="1200"
-        height="420"
-        viewBox="0 0 1200 420"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-            <rect xmlns="http://www.w3.org/2000/svg" data-testid="card_bg" id="cardBg"
-            x="0" y="0" rx="0" height="100%" stroke="#E4E2E2" fill-opacity="1"
-            width="100%" fill="#0a0f0b" stroke-opacity="1" style="stroke:#ffffff; stroke-width:1;"/>
-
-            <style>
-                body {
-                    font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-                }
-                .header {
-                    font: 600 20px 'Segoe UI', Ubuntu, Sans-Serif;
-                    text-align: center;
-                    color: #f6f8fa;
-                    margin-top: 20px;
-                }
-                svg {
-                    font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-                    user-select: none;
-                }
-                
-    .ct-label {
-      fill: #f6f8fa;
-      color: #f6f8fa;
-      font-size: .75rem;
-      line-height: 1;
-    }
-
-    .ct-grid-background,
-    .ct-line {
-      fill: none;
-    }
-
-    .ct-chart-bar .ct-label,
-    .ct-chart-line .ct-label {
-      display: block;
-      display: -webkit-box;
-      display: -moz-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-    }
-
-    .ct-label.ct-horizontal.ct-start {
-      -webkit-box-align: flex-end;
-      -webkit-align-items: flex-end;
-      -ms-flex-align: flex-end;
-      align-items: flex-end;
-      -webkit-box-pack: flex-start;
-      -webkit-justify-content: flex-start;
-      -ms-flex-pack: flex-start;
-      justify-content: flex-start;
-      text-align: left;
-      text-anchor: start;
-    }
-
-    .ct-label.ct-horizontal.ct-end {
-      -webkit-box-align: flex-start;
-      -webkit-align-items: flex-start;
-      -ms-flex-align: flex-start;
-      align-items: flex-start;
-      -webkit-box-pack: flex-start;
-      -webkit-justify-content: flex-start;
-      -ms-flex-pack: flex-start;
-      justify-content: flex-start;
-      text-align: left;
-      text-anchor: start;
-    }
-
-    .ct-label.ct-vertical.ct-start {
-      -webkit-box-align: flex-end;
-      -webkit-align-items: flex-end;
-      -ms-flex-align: flex-end;
-      align-items: flex-end;
-      -webkit-box-pack: flex-end;
-      -webkit-justify-content: flex-end;
-      -ms-flex-pack: flex-end;
-      justify-content: flex-end;
-      text-align: right;
-      text-anchor: end;
-    }
-
-    .ct-label.ct-vertical.ct-end {
-      -webkit-box-align: flex-end;
-      -webkit-align-items: flex-end;
-      -ms-flex-align: flex-end;
-      align-items: flex-end;
-      -webkit-box-pack: flex-start;
-      -webkit-justify-content: flex-start;
-      -ms-flex-pack: flex-start;
-      justify-content: flex-start;
-      text-align: left;
-      text-anchor: start;
-    }
-
-    .ct-grid {
-      stroke: #f6f8fa;
-      stroke-width: 1px;
-      stroke-opacity: 0.3;
-      stroke-dasharray: 2px;
-    }
-
-    .ct-point {
-      stroke-width: 10px;
-      stroke-linecap: round;
-      stroke: #f6f8fa;
-      animation: blink 1s ease-in-out forwards;
-    }
-
-    .ct-line {
-      stroke-width: 4px;
-      stroke-dasharray: 5000;
-      stroke-dashoffset: 5000;
-      stroke: #F97316;
-      animation: dash 5s ease-in-out forwards;
-    }
-
-    .ct-area {
-      stroke: none;
-      fill-opacity: 0.1;
-    }
-
-    .ct-series-a .ct-area,
-    .ct-series-a .ct-slice-pie {
-      fill: #abd200;
-    }
-
-    .ct-label .ct-horizontal {
-      transform: rotate(-90deg)
-    }
-    
-                
-        @keyframes blink {
-            from {
-                opacity: 0;
-                transform:translateX(-20px); 
-            }
-            to {
-                opacity:1;
-                transform: translateX(0);
-            }
-        }
-    
-                
-        @keyframes dash {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
-    
-    
-            </style>
-
-            <foreignObject x="0" y="0" width="1200" height="50">
-                <h1 xmlns="http://www.w3.org/1999/xhtml" class="header">
-                    Jesus Fernandez's Contribution Graph
-                </h1>
-            </foreignObject>
-            <svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="1200" height="420" class="ct-chart-line"><g class="ct-grids"><line x1="90" x2="90" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="126.55172413793103" x2="126.55172413793103" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="163.10344827586206" x2="163.10344827586206" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="199.65517241379308" x2="199.65517241379308" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="236.20689655172413" x2="236.20689655172413" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="272.7586206896552" x2="272.7586206896552" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="309.31034482758616" x2="309.31034482758616" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="345.8620689655172" x2="345.8620689655172" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="382.41379310344826" x2="382.41379310344826" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="418.9655172413793" x2="418.9655172413793" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="455.51724137931035" x2="455.51724137931035" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="492.06896551724134" x2="492.06896551724134" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="528.6206896551723" x2="528.6206896551723" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="565.1724137931035" x2="565.1724137931035" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="601.7241379310344" x2="601.7241379310344" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="638.2758620689655" x2="638.2758620689655" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="674.8275862068965" x2="674.8275862068965" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="711.3793103448276" x2="711.3793103448276" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="747.9310344827586" x2="747.9310344827586" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="784.4827586206897" x2="784.4827586206897" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="821.0344827586207" x2="821.0344827586207" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="857.5862068965516" x2="857.5862068965516" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="894.1379310344827" x2="894.1379310344827" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="930.6896551724137" x2="930.6896551724137" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="967.2413793103448" x2="967.2413793103448" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="1003.7931034482758" x2="1003.7931034482758" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="1040.344827586207" x2="1040.344827586207" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="1076.896551724138" x2="1076.896551724138" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="1113.4482758620688" x2="1113.4482758620688" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line x1="1150" x2="1150" y1="80" y2="350" class="ct-grid ct-horizontal"></line><line y1="350" y2="350" x1="90" x2="1150" class="ct-grid ct-vertical"></line><line y1="311.42857142857144" y2="311.42857142857144" x1="90" x2="1150" class="ct-grid ct-vertical"></line><line y1="272.8571428571429" y2="272.8571428571429" x1="90" x2="1150" class="ct-grid ct-vertical"></line><line y1="234.28571428571428" y2="234.28571428571428" x1="90" x2="1150" class="ct-grid ct-vertical"></line><line y1="195.71428571428572" y2="195.71428571428572" x1="90" x2="1150" class="ct-grid ct-vertical"></line><line y1="157.14285714285714" y2="157.14285714285714" x1="90" x2="1150" class="ct-grid ct-vertical"></line><line y1="118.57142857142858" y2="118.57142857142858" x1="90" x2="1150" class="ct-grid ct-vertical"></line><line y1="80" y2="80" x1="90" x2="1150" class="ct-grid ct-vertical"></line></g><g><g class="ct-series ct-series-a"><path d="M90,334.571C102.184,334.571,114.368,334.571,126.552,334.571C138.736,334.571,150.92,334.571,163.103,334.571C175.287,334.571,187.471,334.571,199.655,334.571C211.839,334.571,224.023,334.571,236.207,334.571C248.391,334.571,260.575,334.571,272.759,334.571C284.943,334.571,297.126,334.571,309.31,334.571C321.494,334.571,333.678,334.571,345.862,334.571C358.046,334.571,370.23,319.143,382.414,319.143C394.598,319.143,406.782,319.143,418.966,319.143C431.149,319.143,443.333,103.143,455.517,103.143C467.701,103.143,479.885,334.571,492.069,334.571C504.253,334.571,516.437,334.571,528.621,334.571C540.805,334.571,552.989,334.571,565.172,334.571C577.356,334.571,589.54,334.571,601.724,334.571C613.908,334.571,626.092,334.571,638.276,334.571C650.46,334.571,662.644,334.571,674.828,334.571C687.011,334.571,699.195,334.571,711.379,334.571C723.563,334.571,735.747,334.571,747.931,334.571C760.115,334.571,772.299,334.571,784.483,334.571C796.667,334.571,808.851,334.571,821.034,334.571C833.218,334.571,845.402,334.571,857.586,334.571C869.77,334.571,881.954,319.143,894.138,319.143C906.322,319.143,918.506,324.286,930.69,326.857C942.874,329.429,955.057,334.571,967.241,334.571C979.425,334.571,991.609,334.571,1003.793,334.571C1015.977,334.571,1028.161,334.571,1040.345,334.571C1052.529,334.571,1064.713,334.571,1076.897,334.571C1089.08,334.571,1101.264,334.571,1113.448,334.571C1125.632,334.571,1137.816,344.857,1150,350" class="ct-line"></path><line x1="90" y1="334.57142857142856" x2="90.01" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="126.55172413793103" y1="334.57142857142856" x2="126.56172413793104" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="163.10344827586206" y1="334.57142857142856" x2="163.11344827586205" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="199.65517241379308" y1="334.57142857142856" x2="199.66517241379307" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="236.20689655172413" y1="334.57142857142856" x2="236.21689655172412" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="272.7586206896552" y1="334.57142857142856" x2="272.76862068965517" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="309.31034482758616" y1="334.57142857142856" x2="309.32034482758615" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="345.8620689655172" y1="334.57142857142856" x2="345.8720689655172" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="382.41379310344826" y1="319.14285714285717" x2="382.42379310344825" y2="319.14285714285717" class="ct-point" ct:value="4"></line><line x1="418.9655172413793" y1="319.14285714285717" x2="418.9755172413793" y2="319.14285714285717" class="ct-point" ct:value="4"></line><line x1="455.51724137931035" y1="103.14285714285714" x2="455.52724137931034" y2="103.14285714285714" class="ct-point" ct:value="32"></line><line x1="492.06896551724134" y1="334.57142857142856" x2="492.07896551724133" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="528.6206896551723" y1="334.57142857142856" x2="528.6306896551723" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="565.1724137931035" y1="334.57142857142856" x2="565.1824137931035" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="601.7241379310344" y1="334.57142857142856" x2="601.7341379310344" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="638.2758620689655" y1="334.57142857142856" x2="638.2858620689655" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="674.8275862068965" y1="334.57142857142856" x2="674.8375862068965" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="711.3793103448276" y1="334.57142857142856" x2="711.3893103448275" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="747.9310344827586" y1="334.57142857142856" x2="747.9410344827586" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="784.4827586206897" y1="334.57142857142856" x2="784.4927586206896" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="821.0344827586207" y1="334.57142857142856" x2="821.0444827586207" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="857.5862068965516" y1="334.57142857142856" x2="857.5962068965516" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="894.1379310344827" y1="319.14285714285717" x2="894.1479310344827" y2="319.14285714285717" class="ct-point" ct:value="4"></line><line x1="930.6896551724137" y1="326.85714285714283" x2="930.6996551724137" y2="326.85714285714283" class="ct-point" ct:value="3"></line><line x1="967.2413793103448" y1="334.57142857142856" x2="967.2513793103448" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="1003.7931034482758" y1="334.57142857142856" x2="1003.8031034482758" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="1040.344827586207" y1="334.57142857142856" x2="1040.354827586207" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="1076.896551724138" y1="334.57142857142856" x2="1076.906551724138" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="1113.4482758620688" y1="334.57142857142856" x2="1113.4582758620688" y2="334.57142857142856" class="ct-point" ct:value="2"></line><line x1="1150" y1="350" x2="1150.01" y2="350" class="ct-point" ct:value="0"></line></g></g><g class="ct-labels"><text x="85.5" y="370" width="36.55172413793103" height="40" class="ct-label ct-horizontal ct-end">13</text><text x="122.05172413793103" y="370" width="36.55172413793103" height="40" class="ct-label ct-horizontal ct-end">14</text><text x="158.60344827586206" y="370" width="36.55172413793103" height="40" class="ct-label ct-horizontal ct-end">15</text><text x="195.15517241379308" y="370" width="36.55172413793103" height="40" class="ct-label ct-horizontal ct-end">16</text><text x="231.70689655172413" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">17</text><text x="268.2586206896552" y="370" width="36.55172413793102" height="40" class="ct-label ct-horizontal ct-end">18</text><text x="304.81034482758616" y="370" width="36.55172413793102" height="40" class="ct-label ct-horizontal ct-end">19</text><text x="341.3620689655172" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">20</text><text x="377.91379310344826" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">21</text><text x="414.4655172413793" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">22</text><text x="451.01724137931035" y="370" width="36.55172413793099" height="40" class="ct-label ct-horizontal ct-end">23</text><text x="487.56896551724134" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">24</text><text x="524.1206896551723" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">25</text><text x="560.6724137931035" y="370" width="36.55172413793099" height="40" class="ct-label ct-horizontal ct-end">26</text><text x="597.2241379310344" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">27</text><text x="633.7758620689655" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">28</text><text x="670.3275862068965" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">29</text><text x="706.8793103448276" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">30</text><text x="743.4310344827586" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">1</text><text x="779.9827586206897" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">2</text><text x="816.5344827586207" y="370" width="36.55172413793093" height="40" class="ct-label ct-horizontal ct-end">3</text><text x="853.0862068965516" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">4</text><text x="889.6379310344827" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">5</text><text x="926.1896551724137" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">6</text><text x="962.7413793103448" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">7</text><text x="999.2931034482758" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">8</text><text x="1035.844827586207" y="370" width="36.551724137931046" height="40" class="ct-label ct-horizontal ct-end">9</text><text x="1072.396551724138" y="370" width="36.55172413793093" height="40" class="ct-label ct-horizontal ct-end">10</text><text x="1108.9482758620688" y="370" width="36.55172413793116" height="40" class="ct-label ct-horizontal ct-end">11</text><text x="1145.5" y="370" width="30" height="40" class="ct-label ct-horizontal ct-end">12</text><text y="354.5" x="80" height="38.57142857142857" width="60" class="ct-label ct-vertical ct-start">0</text><text y="315.92857142857144" x="80" height="38.57142857142857" width="60" class="ct-label ct-vertical ct-start">5</text><text y="277.3571428571429" x="80" height="38.57142857142857" width="60" class="ct-label ct-vertical ct-start">10</text><text y="238.78571428571428" x="80" height="38.57142857142857" width="60" class="ct-label ct-vertical ct-start">15</text><text y="200.21428571428572" x="80" height="38.571428571428584" width="60" class="ct-label ct-vertical ct-start">20</text><text y="161.64285714285714" x="80" height="38.571428571428555" width="60" class="ct-label ct-vertical ct-start">25</text><text y="123.07142857142858" x="80" height="38.571428571428584" width="60" class="ct-label ct-vertical ct-start">30</text><text y="84.5" x="80" height="30" width="60" class="ct-label ct-vertical ct-start">35</text></g><text class="ct-axis-title ct-label" x="620" y="400" dominant-baseline="text-after-edge" text-anchor="middle">Days</text><text class="ct-axis-title ct-label" x="20" y="215" transform="rotate(-90, 20, 215)" dominant-baseline="hanging" text-anchor="middle">Contributions</text></svg>
-    </svg>
+<svg width="1200" height="420" viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jfernandez27 contribution graph, last 30 days, 273 contributions">
+<title>Jfernandez27's Contribution Graph - last 30 days</title>
+<style>
+  text { font-family: 'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif; fill: #f6f8fa; }
+  .title { font-size: 20px; font-weight: 600; }
+  .subtitle { font-size: 13px; opacity: .8; }
+  .label { font-size: 12px; }
+  .axis { font-size: 13px; font-weight: 500; }
+  .grid { stroke: #f6f8fa; stroke-opacity: .12; stroke-width: 1; }
+  .line { fill: none; stroke: #F97316; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+  .area { fill: #F97316; fill-opacity: .12; }
+  .point { fill: #abd200; stroke: #0a0f0b; stroke-width: 1.5; }
+</style>
+<rect x="0.5" y="0.5" width="1199" height="419" fill="#0a0f0b" stroke="#ffffff" stroke-width="1"/>
+<text x="90" y="36" class="title">Jfernandez27's Contribution Graph</text>
+<text x="90" y="58" class="subtitle">Last 30 days · 273 contributions · Aug 21 – Sep 19, 2026</text>
+<line class="grid" x1="90" x2="1150" y1="350.00" y2="350.00"/>
+<text x="78" y="354.00" class="label" text-anchor="end">0</text>
+<line class="grid" x1="90" x2="1150" y1="311.43" y2="311.43"/>
+<text x="78" y="315.43" class="label" text-anchor="end">20</text>
+<line class="grid" x1="90" x2="1150" y1="272.86" y2="272.86"/>
+<text x="78" y="276.86" class="label" text-anchor="end">40</text>
+<line class="grid" x1="90" x2="1150" y1="234.29" y2="234.29"/>
+<text x="78" y="238.29" class="label" text-anchor="end">60</text>
+<line class="grid" x1="90" x2="1150" y1="195.71" y2="195.71"/>
+<text x="78" y="199.71" class="label" text-anchor="end">80</text>
+<line class="grid" x1="90" x2="1150" y1="157.14" y2="157.14"/>
+<text x="78" y="161.14" class="label" text-anchor="end">100</text>
+<line class="grid" x1="90" x2="1150" y1="118.57" y2="118.57"/>
+<text x="78" y="122.57" class="label" text-anchor="end">120</text>
+<line class="grid" x1="90" x2="1150" y1="80.00" y2="80.00"/>
+<text x="78" y="84.00" class="label" text-anchor="end">140</text>
+<line class="grid" x1="90.00" x2="90.00" y1="80" y2="350"/>
+<text x="90.00" y="372" class="label" text-anchor="middle">21</text>
+<line class="grid" x1="126.55" x2="126.55" y1="80" y2="350"/>
+<text x="126.55" y="372" class="label" text-anchor="middle">22</text>
+<line class="grid" x1="163.10" x2="163.10" y1="80" y2="350"/>
+<text x="163.10" y="372" class="label" text-anchor="middle">23</text>
+<line class="grid" x1="199.66" x2="199.66" y1="80" y2="350"/>
+<text x="199.66" y="372" class="label" text-anchor="middle">24</text>
+<line class="grid" x1="236.21" x2="236.21" y1="80" y2="350"/>
+<text x="236.21" y="372" class="label" text-anchor="middle">25</text>
+<line class="grid" x1="272.76" x2="272.76" y1="80" y2="350"/>
+<text x="272.76" y="372" class="label" text-anchor="middle">26</text>
+<line class="grid" x1="309.31" x2="309.31" y1="80" y2="350"/>
+<text x="309.31" y="372" class="label" text-anchor="middle">27</text>
+<line class="grid" x1="345.86" x2="345.86" y1="80" y2="350"/>
+<text x="345.86" y="372" class="label" text-anchor="middle">28</text>
+<line class="grid" x1="382.41" x2="382.41" y1="80" y2="350"/>
+<text x="382.41" y="372" class="label" text-anchor="middle">29</text>
+<line class="grid" x1="418.97" x2="418.97" y1="80" y2="350"/>
+<text x="418.97" y="372" class="label" text-anchor="middle">30</text>
+<line class="grid" x1="455.52" x2="455.52" y1="80" y2="350"/>
+<text x="455.52" y="372" class="label" text-anchor="middle">31</text>
+<line class="grid" x1="492.07" x2="492.07" y1="80" y2="350"/>
+<text x="492.07" y="372" class="label" text-anchor="middle">1</text>
+<line class="grid" x1="528.62" x2="528.62" y1="80" y2="350"/>
+<text x="528.62" y="372" class="label" text-anchor="middle">2</text>
+<line class="grid" x1="565.17" x2="565.17" y1="80" y2="350"/>
+<text x="565.17" y="372" class="label" text-anchor="middle">3</text>
+<line class="grid" x1="601.72" x2="601.72" y1="80" y2="350"/>
+<text x="601.72" y="372" class="label" text-anchor="middle">4</text>
+<line class="grid" x1="638.28" x2="638.28" y1="80" y2="350"/>
+<text x="638.28" y="372" class="label" text-anchor="middle">5</text>
+<line class="grid" x1="674.83" x2="674.83" y1="80" y2="350"/>
+<text x="674.83" y="372" class="label" text-anchor="middle">6</text>
+<line class="grid" x1="711.38" x2="711.38" y1="80" y2="350"/>
+<text x="711.38" y="372" class="label" text-anchor="middle">7</text>
+<line class="grid" x1="747.93" x2="747.93" y1="80" y2="350"/>
+<text x="747.93" y="372" class="label" text-anchor="middle">8</text>
+<line class="grid" x1="784.48" x2="784.48" y1="80" y2="350"/>
+<text x="784.48" y="372" class="label" text-anchor="middle">9</text>
+<line class="grid" x1="821.03" x2="821.03" y1="80" y2="350"/>
+<text x="821.03" y="372" class="label" text-anchor="middle">10</text>
+<line class="grid" x1="857.59" x2="857.59" y1="80" y2="350"/>
+<text x="857.59" y="372" class="label" text-anchor="middle">11</text>
+<line class="grid" x1="894.14" x2="894.14" y1="80" y2="350"/>
+<text x="894.14" y="372" class="label" text-anchor="middle">12</text>
+<line class="grid" x1="930.69" x2="930.69" y1="80" y2="350"/>
+<text x="930.69" y="372" class="label" text-anchor="middle">13</text>
+<line class="grid" x1="967.24" x2="967.24" y1="80" y2="350"/>
+<text x="967.24" y="372" class="label" text-anchor="middle">14</text>
+<line class="grid" x1="1003.79" x2="1003.79" y1="80" y2="350"/>
+<text x="1003.79" y="372" class="label" text-anchor="middle">15</text>
+<line class="grid" x1="1040.34" x2="1040.34" y1="80" y2="350"/>
+<text x="1040.34" y="372" class="label" text-anchor="middle">16</text>
+<line class="grid" x1="1076.90" x2="1076.90" y1="80" y2="350"/>
+<text x="1076.90" y="372" class="label" text-anchor="middle">17</text>
+<line class="grid" x1="1113.45" x2="1113.45" y1="80" y2="350"/>
+<text x="1113.45" y="372" class="label" text-anchor="middle">18</text>
+<line class="grid" x1="1150.00" x2="1150.00" y1="80" y2="350"/>
+<text x="1150.00" y="372" class="label" text-anchor="middle">19</text>
+<text x="620" y="404" class="axis" text-anchor="middle">Days</text>
+<text transform="translate(28 215) rotate(-90)" class="axis" text-anchor="middle">Contributions</text>
+<polygon class="area" points="90,350 90.00,350.00 126.55,350.00 163.10,350.00 199.66,350.00 236.21,350.00 272.76,350.00 309.31,350.00 345.86,350.00 382.41,350.00 418.97,350.00 455.52,350.00 492.07,350.00 528.62,350.00 565.17,350.00 601.72,350.00 638.28,350.00 674.83,350.00 711.38,350.00 747.93,350.00 784.48,350.00 821.03,350.00 857.59,346.14 894.14,313.36 930.69,317.21 967.24,350.00 1003.79,350.00 1040.34,110.86 1076.90,263.21 1113.45,265.14 1150.00,307.57 1150.00,350"/>
+<polyline class="line" points="90.00,350.00 126.55,350.00 163.10,350.00 199.66,350.00 236.21,350.00 272.76,350.00 309.31,350.00 345.86,350.00 382.41,350.00 418.97,350.00 455.52,350.00 492.07,350.00 528.62,350.00 565.17,350.00 601.72,350.00 638.28,350.00 674.83,350.00 711.38,350.00 747.93,350.00 784.48,350.00 821.03,350.00 857.59,346.14 894.14,313.36 930.69,317.21 967.24,350.00 1003.79,350.00 1040.34,110.86 1076.90,263.21 1113.45,265.14 1150.00,307.57"/>
+<circle class="point" cx="90.00" cy="350.00" r="4"><title>2026-08-21: 0 contributions</title></circle>
+<circle class="point" cx="126.55" cy="350.00" r="4"><title>2026-08-22: 0 contributions</title></circle>
+<circle class="point" cx="163.10" cy="350.00" r="4"><title>2026-08-23: 0 contributions</title></circle>
+<circle class="point" cx="199.66" cy="350.00" r="4"><title>2026-08-24: 0 contributions</title></circle>
+<circle class="point" cx="236.21" cy="350.00" r="4"><title>2026-08-25: 0 contributions</title></circle>
+<circle class="point" cx="272.76" cy="350.00" r="4"><title>2026-08-26: 0 contributions</title></circle>
+<circle class="point" cx="309.31" cy="350.00" r="4"><title>2026-08-27: 0 contributions</title></circle>
+<circle class="point" cx="345.86" cy="350.00" r="4"><title>2026-08-28: 0 contributions</title></circle>
+<circle class="point" cx="382.41" cy="350.00" r="4"><title>2026-08-29: 0 contributions</title></circle>
+<circle class="point" cx="418.97" cy="350.00" r="4"><title>2026-08-30: 0 contributions</title></circle>
+<circle class="point" cx="455.52" cy="350.00" r="4"><title>2026-08-31: 0 contributions</title></circle>
+<circle class="point" cx="492.07" cy="350.00" r="4"><title>2026-09-01: 0 contributions</title></circle>
+<circle class="point" cx="528.62" cy="350.00" r="4"><title>2026-09-02: 0 contributions</title></circle>
+<circle class="point" cx="565.17" cy="350.00" r="4"><title>2026-09-03: 0 contributions</title></circle>
+<circle class="point" cx="601.72" cy="350.00" r="4"><title>2026-09-04: 0 contributions</title></circle>
+<circle class="point" cx="638.28" cy="350.00" r="4"><title>2026-09-05: 0 contributions</title></circle>
+<circle class="point" cx="674.83" cy="350.00" r="4"><title>2026-09-06: 0 contributions</title></circle>
+<circle class="point" cx="711.38" cy="350.00" r="4"><title>2026-09-07: 0 contributions</title></circle>
+<circle class="point" cx="747.93" cy="350.00" r="4"><title>2026-09-08: 0 contributions</title></circle>
+<circle class="point" cx="784.48" cy="350.00" r="4"><title>2026-09-09: 0 contributions</title></circle>
+<circle class="point" cx="821.03" cy="350.00" r="4"><title>2026-09-10: 0 contributions</title></circle>
+<circle class="point" cx="857.59" cy="346.14" r="4"><title>2026-09-11: 2 contributions</title></circle>
+<circle class="point" cx="894.14" cy="313.36" r="4"><title>2026-09-12: 19 contributions</title></circle>
+<circle class="point" cx="930.69" cy="317.21" r="4"><title>2026-09-13: 17 contributions</title></circle>
+<circle class="point" cx="967.24" cy="350.00" r="4"><title>2026-09-14: 0 contributions</title></circle>
+<circle class="point" cx="1003.79" cy="350.00" r="4"><title>2026-09-15: 0 contributions</title></circle>
+<circle class="point" cx="1040.34" cy="110.86" r="4"><title>2026-09-16: 124 contributions</title></circle>
+<circle class="point" cx="1076.90" cy="263.21" r="4"><title>2026-09-17: 45 contributions</title></circle>
+<circle class="point" cx="1113.45" cy="265.14" r="4"><title>2026-09-18: 44 contributions</title></circle>
+<circle class="point" cx="1150.00" cy="307.57" r="4"><title>2026-09-19: 22 contributions</title></circle>
+</svg>
