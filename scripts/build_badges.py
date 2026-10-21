@@ -44,6 +44,7 @@ PROJECT_REPOS = [
     ("apexfit", "apexfit"),
     ("tepuy", "tepuy"),
     ("ollama-dev-env", "ollama-dev-env"),
+    ("deskmates", "deskmates"),
 ]
 
 PROFILE_QUERY = """
